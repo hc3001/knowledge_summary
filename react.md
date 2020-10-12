@@ -24,7 +24,16 @@
 9、react-router-dom 路由使用；<br>
 ①、Route 使用规则，Path匹配路径， exact精准匹配，component path匹配时对应的页面组件。<br>
 ②、Switch 只找到第一个被location匹配到的<Route>就立即停止继续匹配。<br>
-Link
-/Redirect/withRouter/Route/BrowserRouter使用。<br>
+③、Link 组件用于代替a标签，不用载入新的页面。 to做为目标 <Link to='/'>Home</Link>。<br>
+③、Redirect 组件用于重定向，当匹配不到任何路径时用。
+              <Switch>
+                <Route path={routePaths.INDEX} exact component={Index} />
+                <Route path={routePaths.CARD} component={Card} />
+                <Redirect to="/" />
+            </Switch>
+  
+  <br>  
+⑥、BrowserRouter 和 hashiRouter router的二种设计方式（使用history api和hash实现），这个和vue中mode：history/hash 一致。
+
 
 10、antd 使用；
