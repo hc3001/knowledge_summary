@@ -22,7 +22,8 @@
 8、redux immutable api使用；
 
 9、react-router-dom 路由使用；<br>
-①、Route 使用规则，Path匹配路径， exact精准匹配，component path匹配时对应的页面组件
+①、Route 使用规则，Path匹配路径， exact精准匹配，component path匹配时对应的页面组件。<br>
+②、Switch 只找到第一个被location匹配到的<Route>就立即停止继续匹配。<br>
 Link
 /Redirect/withRouter/Route/BrowserRouter使用。<br>
 
