@@ -15,10 +15,9 @@
 
 6、redux 流程及方法；
 
-7、redux 中间件redux-thunk使用，axios异步请求；
-①.redux-thunk 是作为redux的中间件来使用，其主要作用是对redux store.dispatch方法做一个升级，不用redux-thunk store.dispatch只能接收对象参数，redux-thunk能让dispatch接收异步函数。
-②.prvider/connect/combineReducers 使用。
-
+7、redux 中间件redux-thunk使用，axios异步请求；<br>
+①.redux-thunk 是作为redux的中间件来使用，其主要作用是对redux store.dispatch方法做一个升级，不用redux-thunk store.dispatch只能接收对象参数，redux-thunk能让dispatch接收异步函数。<br>
+②.prvider/connect/combineReducers 使用。<br>
 
 8、redux immutable api使用；
 
