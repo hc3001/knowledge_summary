@@ -22,7 +22,8 @@
 8、redux immutable api使用；
 
 9、react-router-dom 路由使用；<br>
-①、基本使用规则。<br>
-②、Link/Redirect/withRouter/Route/BrowserRouter使用。<br>
+①、Route 使用规则，Path匹配路径， exact精准匹配，component path匹配时对应的页面组件
+Link
+/Redirect/withRouter/Route/BrowserRouter使用。<br>
 
 10、antd 使用；
