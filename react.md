@@ -34,6 +34,6 @@
   </Switch>
   ```
 ⑥、BrowserRouter 和 hashiRouter router的二种设计方式（使用history api和hash实现），这个和vue中mode：history/hash 一致。
-
+⑥、withRouter 用法withRouter(MyComponent) withRouter是高阶组件，可以获取到MyComponent 的路由信息。
 
 10、antd 使用；
