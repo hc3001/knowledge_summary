@@ -23,7 +23,24 @@
 8、redux immutable api使用；
 
 9、react-router-dom 路由使用；<br>
-①、Route 使用规则，Path匹配路径， exact精准匹配，component path匹配时对应的页面组件。<br>
+①、Route 使用规则，Path匹配路径， exact精准匹配，component path匹配时对应的页面组件，用render代替component可以做一些加载组件判断或传递参数用。<br>
+   ``` 
+   <Route
+       key={item.path}
+       path={item.path}
+       exact={item.exact}
+       render={props =>
+           !auth ? (
+               <item.component {...props} />
+           ) : item.auth && item.auth.indexOf(auth) !== -1 ? (
+               <item.component {...props} />
+           ) : (
+               // 这里也可以跳转到 403 页面
+               <Redirect to='/404' {...props} />
+           )
+       }>
+   </Route>
+  ```
 ②、Switch 只找到第一个被location匹配到的<Route>就立即停止继续匹配。<br>
 ③、Link 组件用于代替a标签，不用载入新的页面。 to做为目标 <Link to='/'>Home</Link>。<br>
 ③、Redirect 组件用于重定向，当匹配不到任何路径时用。<br>
