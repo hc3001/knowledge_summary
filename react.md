@@ -11,6 +11,7 @@
 
 5、生命周期；
 ①、componentDidUpdate/componentDidMount/componentWillUnmount。<br>
+②、componentDidUpdate componentDidUpdate(preProps,preState,spanshot) props 和 state变化都会触发，可用于监听props变化执行某个异步函数。<br>
 
 6、ref 与高阶组件使用；
 
