@@ -22,5 +22,17 @@ set 为构造函数可以模拟实现一个Set 数据结构 https://github.com/m
 
 #### 2、Map
 Map 保存键值对，和Object的区别是key 可以是任意类型的值。
-Map 方法 set/get/has/delete
-Map 迭代方法 keys/values/entries/forEach
+Map 方法 set/get/has/delete。
+Map 迭代方法 keys/values/entries/forEach。</br>
+Map 可以接收一个数组
+```
+const map = new Map([
+  ['name', '张三'],
+  ['title', 'Author']
+])
+map.size // 2
+map.has('name') // true
+map.get('name') // "张三"
+map.has('title') // true
+map.get('title') // "Author"
+```
