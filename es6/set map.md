@@ -18,3 +18,4 @@ let subtraction = a.filter((res) => {
 
 console.log(subtraction)
 ```
+set 为构造函数可以模拟实现一个Set 数据结构 https://github.com/mqyqingfeng/Blog/issues/91；
