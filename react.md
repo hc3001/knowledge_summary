@@ -10,6 +10,7 @@
 4、事件处理；
 
 5、生命周期；
+①、componentDidUpdate/componentDidMount/componentWillUnmount。<br>
 
 6、ref 与高阶组件使用；
 
