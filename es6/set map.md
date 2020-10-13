@@ -18,7 +18,7 @@ let subtraction = a.filter((res) => {
 
 console.log(subtraction)
 ```
-set 为构造函数可以模拟实现一个Set 数据结构 https://github.com/mqyqingfeng/Blog/issues/91；
+set 为构造函数可以模拟实现一个Set 数据结构 https://github.com/mqyqingfeng/Blog/issues/91； *待阅*
 
 #### 2、Map
 Map 保存键值对，和Object的区别是key 可以是任意类型的值。
