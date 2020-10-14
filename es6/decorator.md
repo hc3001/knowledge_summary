@@ -1,7 +1,7 @@
-JS 的装饰器可以用来“装饰”三种类型的对象：类的属性/方法、访问器、类本身。<br>
+JS 的装饰器可以用来“装饰”三种类型的对象：类的属性/方法、访问器、类本身，（类似于difineProperty）。<br>
 装饰方法，返回属性描述符。<br>
 ```
-function Decorator(type){
+function CheckerDecorator(type){
     /**
      * 这里是真正的 decorator
      * @target 装饰的属性所述的类的原型，注意，不是实例后的类。如果装饰的是 Car 的某个属性，这个 target 的值就是 Car.prototype
@@ -19,9 +19,11 @@ function Decorator(type){
                 return v;
             },
             set: function(c) {
+                var cType = typeof(c);
                 v = c;
             }
         }
     }
 }
-```  
+``` 
+https://juejin.im/post/6844903506562777101#heading-2
