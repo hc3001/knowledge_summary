@@ -52,7 +52,7 @@
       <Redirect to="/" />
   </Switch>
   ```
-⑥、BrowserRouter 和 hashiRouter router的二种设计方式（使用history api和hash实现），这个和vue中mode：history/hash 一致。<br>
+⑥、BrowserRouter 和 hashRouter router的二种设计方式（使用history api和hash实现），这个和vue中mode：history/hash 一致。<br>
 ⑥、withRouter 用法withRouter(MyComponent) withRouter是高阶组件，可以获取到MyComponent 的路由信息。<br>
 ⑦、在方法中页面跳转的几种方式：
    登录成功用跳转：this.props.history.push('/') <br>
