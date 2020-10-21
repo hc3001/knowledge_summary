@@ -4,6 +4,9 @@
 2、JSX 基本语法；
 
 3、无状态组件、UI组件、容器组件；
+①、全部数组开头字母必须用大写。<br>
+②、render函数return返回必须只能有一个标签包裹，这个和vue，template模板中只能有一个标签一致，如果不想显示根标签可以用Fragment代替，最终Fragment不会显示在dom。<br>
+
 
 3、props 与 state，propTypes校验；
 ①、state 更新，用setState函数更新state数据，由于setState是一个异步函数，要想setState 参数全部按照预期执行，最好传一个函数作为回调。
@@ -16,6 +19,8 @@ incrementCount() {
 }
 ```
 4、事件处理；
+①、事件名必须是驼峰命名，比如onClick。<br>
+②、事件如果要传参需要改变this，onClick='this.handlerSubmit.bind(this, 'hellow')'
 
 5、生命周期；
 ①、componentDidUpdate/componentDidMount/componentWillUnmount。<br>
