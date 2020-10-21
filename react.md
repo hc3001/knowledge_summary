@@ -6,7 +6,15 @@
 3、无状态组件、UI组件、容器组件；
 
 3、props 与 state，propTypes校验；
-
+①、state 更新，用setState函数更新state数据，由于setState是一个异步函数，要想setState 参数全部按照预期执行，最好传一个函数作为回调。
+```
+incrementCount() {
+  this.setState((state) => {
+    // 重要：在更新的时候读取 `state`，而不是 `this.state`。
+    return {count: state.count + 1}
+  })
+}
+```
 4、事件处理；
 
 5、生命周期；
