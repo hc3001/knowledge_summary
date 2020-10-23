@@ -22,6 +22,7 @@ const label = {
 
 #### 4、props 与 state，propTypes校验；
 ①、state 更新，用setState函数更新state数据，由于setState是一个异步函数，要想setState 参数全部按照预期执行，最好传一个函数作为回调。
+②、react 单项数据流，不允许改变父组件传过来的数据。vue子组件可以改变父组件传过来的对象，父组件对象数据也会改变，这是因为指向的是同一个对象，但不建议这么做。
 ```
 incrementCount() {
   this.setState((state) => {
@@ -30,6 +31,20 @@ incrementCount() {
   })
 }
 ```
+③、对prop进行校验，常用的校验，规定特定类型、规定是否必须、规定默认值
+```
+import 'propTypes' from 'prop-types'
+MyComponent.propTypes = {
+  children: PropTypes.element.isRequired,
+  name: PropTypes.string,
+  content: PropTypes.object,
+}
+MyComponent.defaultProps = {
+  content: {},
+  name: 'li'
+}
+```
+
 #### 5、事件处理；
 ①、事件名必须是驼峰命名，比如onClick。<br>
 ②、事件如果要传参需要改变this，onClick='this.handlerSubmit.bind(this, 'hellow')'
