@@ -11,11 +11,14 @@ const label = {
 
 #### 2、JSX 基本语法；
 ①、dangerouslySetInnerHTML={{__html：item}} 可以使输入的内容不被转义，直接显示，类似于vue中的v-html。<br>
+②、在label上加for属性，可以扩大光标范围，在react中需要替换成htmlFor写法。<br>
+③、render中return 中所有表达式都需要放在{}中。<br>
+④、判断用if，循环用map，条件判断中如果值为null，不进行任何渲染  {null}。<br>
 
 #### 3、无状态组件、UI组件、容器组件；
 ①、全部数组开头字母必须用大写。<br>
 ②、render函数return返回必须只能有一个标签包裹，这个和vue，template模板中只能有一个标签一致，如果不想显示根标签可以用Fragment代替，最终Fragment不会显示在dom。<br>
-
+③、父组件给子组件传值是：通过自定义属性的方法；子组件通过this.props来接收。子组件给父组件传值是 ：父组件通过自定义属性的方法给子组件传递一个自定义事件，然后子组件通过this.props.方法（父组件）来触发此函数，类似于vue中实例方法 vm.$emit('change', data)
 
 #### 4、props 与 state，propTypes校验；
 ①、state 更新，用setState函数更新state数据，由于setState是一个异步函数，要想setState 参数全部按照预期执行，最好传一个函数作为回调。
