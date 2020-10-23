@@ -1,7 +1,5 @@
 # react_knowledge_summary
 #### 1、className 基本语法，iconfont使用，css相关插件使用；
-
-#### 2、JSX 基本语法；
 ①、在react 标签中使用class 需用className，如果是使用style可以如下使用
 ```
 const label = {
@@ -10,6 +8,9 @@ const label = {
 }
 <div style={label}>此标签是否隐藏</div>
 ```
+
+#### 2、JSX 基本语法；
+①、dangerouslySetInnerHTML={{__html：item}} 可以使输入的内容不被转义，直接显示，类似于vue中的v-html。<br>
 
 #### 3、无状态组件、UI组件、容器组件；
 ①、全部数组开头字母必须用大写。<br>
