@@ -14,6 +14,7 @@ const label = {
 ②、在label上加for属性，可以扩大光标范围，在react中需要替换成htmlFor写法。<br>
 ③、render中return 中所有表达式都需要放在{}中。<br>
 ④、判断用if，循环用map，条件判断中如果值为null，不进行任何渲染  {null}。<br>
+⑤、当state或者props发生变化时，render 函数会重新执行。但是当根props变化时，这样会有性能问题，可以用shouldComponentUpdate 生命周期返回false来解决，也可以用Purecomponent(bug待定)， vue框架内部有优化，没这个性能问题。
 
 #### 3、无状态组件、UI组件、容器组件；
 ①、全部数组开头字母必须用大写。<br>
