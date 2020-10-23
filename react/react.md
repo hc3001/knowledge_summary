@@ -17,6 +17,7 @@ const label = {
 ⑤、当state或者props发生变化时，render 函数会重新执行。但是当根props变化时，这样会有性能问题，可以用shouldComponentUpdate 生命周期返回false来解决，也可以用Purecomponent(bug待定)， vue框架内部有优化，没这个性能问题。
 ⑥、react生成dom基本流程 JSX + state => createElemnt => JS对象（virtual DOM） => diff算法 => 真实的DOM， vue生成dom基本流程 template模板（包含data） => AST语法书 => 渲染函数（createElement）=> JS对象（virtual DOM） => diff算法（path） => 真实的DOM， 如果vue模板用jsx语法，流程和react一致。
 
+
 #### 3、无状态组件、UI组件、容器组件；
 ①、全部数组开头字母必须用大写。<br>
 ②、render函数return返回必须只能有一个标签包裹，这个和vue，template模板中只能有一个标签一致，如果不想显示根标签可以用Fragment代替，最终Fragment不会显示在dom。<br>
@@ -24,7 +25,8 @@ const label = {
 
 #### 4、props 与 state，propTypes校验；
 ①、state 更新，用setState函数更新state数据，由于setState是一个异步函数，要想setState 参数全部按照预期执行，最好传一个函数作为回调。
-②、react 单项数据流，不允许改变父组件传过来的数据。vue子组件可以改变父组件传过来的对象，父组件对象数据也会改变，这是因为指向的是同一个对象，但不建议这么做。
+②、ref使用 ref={(input)=>{this.input=input}} 获取当前dom 元素，和vue中ref作用一致，在setState中使用ref，可能出现获取不到dom的情况，可以放在setState的第二个回调函数中获取。 vue 有同样的问题，可用this.$nextTick(()=> {}) 获取。
+③、react 单项数据流，不允许改变父组件传过来的数据。vue子组件可以改变父组件传过来的对象，父组件对象数据也会改变，这是因为指向的是同一个对象，但不建议这么做。
 ```
 incrementCount() {
   this.setState((state) => {
@@ -55,7 +57,7 @@ MyComponent.defaultProps = {
 ①、componentDidUpdate/componentDidMount/componentWillUnmount。<br>
 ②、componentDidUpdate componentDidUpdate(preProps,preState,spanshot) props 和 state变化都会触发，可用于监听props变化执行某个异步函数。 相当于vue 中watch监听<br>
 
-#### 7、ref 与高阶组件使用；
+#### 7、高阶组件使用；
 
 #### 8、redux 流程及方法；
 
