@@ -31,7 +31,7 @@ incrementCount() {
   })
 }
 ```
-③、对prop进行校验，常用的校验，规定特定类型、规定是否必须、规定默认值
+③、对prop进行校验，常用的校验，规定特定类型、规定是否必须、规定默认值，和vue中type，default, required类似。
 ```
 import 'propTypes' from 'prop-types'
 MyComponent.propTypes = {
