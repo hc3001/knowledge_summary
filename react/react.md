@@ -24,9 +24,9 @@ const label = {
 ③、父组件给子组件传值是：通过自定义属性的方法；子组件通过this.props来接收。子组件给父组件传值是 ：父组件通过自定义属性的方法给子组件传递一个自定义事件，然后子组件通过this.props.方法（父组件）来触发此函数，类似于vue中实例方法 vm.$emit('change', data)
 
 #### 4、props 与 state，propTypes校验；
-①、state 更新，用setState函数更新state数据，由于setState是一个异步函数，要想setState 参数全部按照预期执行，最好传一个函数作为回调。
-②、ref使用 ref={(input)=>{this.input=input}} 获取当前dom 元素，和vue中ref作用一致，在setState中使用ref，可能出现获取不到dom的情况，可以放在setState的第二个回调函数中获取。 vue 有同样的问题，可用this.$nextTick(()=> {}) 获取。
-③、react 单项数据流，不允许改变父组件传过来的数据。vue子组件可以改变父组件传过来的对象，父组件对象数据也会改变，这是因为指向的是同一个对象，但不建议这么做。
+①、state 更新，用setState函数更新state数据，由于setState是一个异步函数，要想setState 参数全部按照预期执行，最好传一个函数作为回调。<br>
+②、ref使用 ref={(input)=>{this.input=input}} 获取当前dom 元素，和vue中ref作用一致，在setState中使用ref，可能出现获取不到dom的情况，可以放在setState的第二个回调函数中获取。 vue 有同样的问题，可用this.$nextTick(()=> {}) 获取。<br>
+③、react 单项数据流，不允许改变父组件传过来的数据。vue子组件可以改变父组件传过来的对象，父组件对象数据也会改变，这是因为指向的是同一个对象，但不建议这么做。<br>
 ```
 incrementCount() {
   this.setState((state) => {
@@ -53,9 +53,13 @@ MyComponent.defaultProps = {
 ①、事件名必须是驼峰命名，比如onClick。<br>
 ②、事件如果要传参需要改变this，onClick='this.handlerSubmit.bind(this, 'hellow')'
 
-#### 6、生命周期；
-①、componentDidUpdate/componentDidMount/componentWillUnmount。<br>
-②、componentDidUpdate componentDidUpdate(preProps,preState,spanshot) props 和 state变化都会触发，可用于监听props变化执行某个异步函数。 相当于vue 中watch监听<br>
+#### 6、生命周期(在某一时刻自动执行的函数)；
+①、componentWillMount/componentDidUpdate/componentDidMount/componentWillUnmount。<br>
+②、componentWillMount 在组件即将挂载到dom时调用的函数。类似于vue中的created（很少用）<br>
+③、componentDidMount 函数在组件挂载到页面之后，自动被执行。类似于vue中的mounted（常用于进页面接口调用）<br>
+②、componentDidUpdate 组件更新完成之后执行的函数， componentDidUpdate(preProps,preState,spanshot) props 和 state变化都会触发，可用于监听props变化执行某个异步函数。 相当于vue 中的updated<br>
+⑤、shouldComponentUpdate 组件需要被更新吗？在组件更新前使用。
+
 
 #### 7、高阶组件使用；
 
