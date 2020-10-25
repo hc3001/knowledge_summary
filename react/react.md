@@ -55,10 +55,12 @@ MyComponent.defaultProps = {
 
 #### 6、生命周期(在某一时刻自动执行的函数)；
 ①、componentWillMount/componentDidUpdate/componentDidMount/componentWillUnmount。<br>
-②、componentWillMount 在组件即将挂载到dom时调用的函数。类似于vue中的created（很少用）<br>
-③、componentDidMount 函数在组件挂载到页面之后，自动被执行。类似于vue中的mounted（常用于进页面接口调用）<br>
-②、componentDidUpdate 组件更新完成之后执行的函数， componentDidUpdate(preProps,preState,spanshot) props 和 state变化都会触发，可用于监听props变化执行某个异步函数。 相当于vue 中的updated<br>
-⑤、shouldComponentUpdate 组件需要被更新吗？在组件更新前使用。
+②、render函数，渲染函数
+②、getDerivedStateFromProps 组件每次被render的时候，包括在组件构建之后(虚拟dom之后，实际dom挂载之前)。<br>
+③、componentDidMount 函数在组件挂载到页面之后，自动被执行。类似于vue中的mounted（常用于进页面接口调用）。<br>
+⑤、shouldComponentUpdate 组件需要被更新吗？在组件更新前使用。返回false，组件不会更新，true会更新（优化性能更新时可以用）。<br>
+②、componentDidUpdate 组件更新完成之后执行的函数， componentDidUpdate(preProps,preState,spanshot) props 和 state变化都会触发，可用于监听props变化执行某个异步函数。 相当于vue 中的updated。<br>
+⑥、componentWillUnmount 在组件即将被销毁时可以用到，类似与vue中的destroy（去除监听事件，或者定时器用到）。<br>
 
 
 #### 7、高阶组件使用；
