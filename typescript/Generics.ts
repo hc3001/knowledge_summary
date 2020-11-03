@@ -38,10 +38,32 @@ lengthTest1 <string>('hc')
 
 
 //多个类型参数约束
-function copyFields<T extends U, U>(target: T, source: U) {
+function copyFields<T extends S, S>(target: T, source: S) {
     for(let k in source) {
         target[k] = (<T>source)[k] //约束source为T才能赋值给target
     }
     return target
 }
 console.log(copyFields({a: 1, b: 2, c: 3}, {a: 4}))
+
+//使用含有泛型的接口来定义函数的形状
+interface CreatArrayFunc {
+    <T>(length: number, value: T): Array<T>
+}
+
+let creatArrayTest: CreatArrayFunc = function <T>(length: number, value: T): Array<T> {
+    let result: T[] = []
+    return result
+}
+
+//泛型定义在类中
+class GenericNumber <T>{
+    public initNumber
+    constructor(num: T) {
+        this.initNumber = num
+    }
+    add: (x:T, y:T) => T
+}
+
+let getNumber = new GenericNumber <number>(2)
+getNumber.initNumber
