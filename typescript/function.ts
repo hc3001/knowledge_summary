@@ -29,3 +29,16 @@ function testFunc4(x: number, y: number, z?: number): number {
 }
 
 //参数的默认值
+function testFunc5(x: number, y: number, z: number = 0): number {
+    return x + y + z
+}
+
+//es6剩余参数
+function testFunc6(x: any[], ...items: any[]) {
+    items.forEach(item => {
+        Array.push(item)
+    })
+}
+
+
+
