@@ -100,3 +100,31 @@ interface Lever {
 interface Lever {
     size: string  //属性类型的冲突
 }
+
+//索引签名，两种索引签名：字符串和数字
+interface StringArr {
+    [index: number]: string //当用 number去索引StringArray时会得到string类型的返回值
+}
+
+let myArray: StringArr = ['bobo', 'hc']
+let myAt: string = myArray[0]
+
+
+class Animal {
+    name: string;
+}
+class Dog extends Animal {
+    breed: string;
+}
+
+// 错误：使用数值型的字符串索引，有时会得到完全不同的Animal!
+interface NotOkay {
+    [x: number]: Animal;
+    [x: string]: Dog;
+}
+//编译OK
+interface Okay {
+    [x: number]: Dog;     //Dog是Animal子类
+    [x: string]: Animal;
+}
+
