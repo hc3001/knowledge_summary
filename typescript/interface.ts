@@ -117,6 +117,7 @@ class Dog extends Animal {
     breed: string;
 }
 
+// 数字索引的返回值必须是字符串索引返回值类型的子类型，因为数字类型的索引会先转成字符串，然后再去索引得到返回值
 // 错误：使用数值型的字符串索引，有时会得到完全不同的Animal!
 interface NotOkay {
     [x: number]: Animal;
