@@ -30,3 +30,10 @@
 
 //4、状态码
 
+//5、content-type/Accept，Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型，比如：Content-Type：text/html html、text/plain 纯文本;
+//常见content-type
+//application/x-www-form-urlencoded 原始表单提交，请求参数用key1=val1&key2=val2的方式进行组织，并放到请求实体里面，不支持文件，一般用于表单的提交。
+//multipart/form-data  post数据请求方式，一般需要上传文件的表单则用该类型。
+//application/json  JSON 是一种轻量级的数据格式，以“键-值”对的方式组织的数据，可以提交复杂数据，axios 默认就是application/json
+
+
