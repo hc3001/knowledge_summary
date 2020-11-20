@@ -14,6 +14,8 @@ type User = {
 }
 type Functest = (name: string, length: number) => string
 
+let myTest: Functest1
+
 // 不同
 //1、interface 只能用来描述对象包括对象、数组(索引类型)、函数、类
 interface descript {
