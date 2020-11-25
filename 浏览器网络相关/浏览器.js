@@ -20,7 +20,6 @@
 //     add_header Access-Control-Allow-Origin http://www.domain1.com;  #当前端只跨域不带cookie时，可为*
 //     add_header Access-Control-Allow-Credentials true;
 // }
-
 //④、WebSocket协议跨域
 //⑤、node 中间件代理跨域，原理和nginx 类似
 

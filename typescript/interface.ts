@@ -131,3 +131,4 @@ interface Okay {
     [x: string]: Animal;
 }
 
+//混合接口
