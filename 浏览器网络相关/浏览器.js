@@ -96,3 +96,9 @@
 //14、http报文结构？
 //https://www.cnblogs.com/unclekeith/p/8242012.html
 //https://www.jianshu.com/p/a2c4ede32d11
+//https://www.cnblogs.com/unclekeith/p/8242012.html
+
+//15、cookie
+//https://www.jianshu.com/p/6fc9cea6daa2
+
+
