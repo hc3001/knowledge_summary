@@ -72,6 +72,7 @@
 //向服务器发送请求，服务器会根据这个请求的request header的一些参数来判断是否命中协商缓存，如果命中，则返回304状态码并带上新的response header通知浏览器从缓存中读取资源
 //Etag/If-None-Match Last-Modifed/If-Modified-Since    header字段
 //https://www.jianshu.com/p/54cc04190252
+//https://juejin.cn/post/6844904115428917255#heading-26
 
 //10、本地存储方案
 //cookie http协议的一种扩展，cookie数据会自动在浏览器和web服务器之间传输，用于储存token登录状态，优点兼容性好，缺点储存量小4k。
