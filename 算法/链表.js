@@ -41,3 +41,23 @@ let test = function(a) {
 }
 
 console.log(test(a))
+
+
+//删除排序链表中的重复元素
+
+//判断链表是否成环
+
+//编写一个instanceOf 方法
+
+function instanceOf(a, cla) {
+    let p = a
+    while(p) {
+        p = p.__proto__
+        if(p === cla.prototype) {
+            return true
+        }
+    }
+    return false
+}
+
+console.log(instanceOf([], Array))
