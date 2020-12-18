@@ -111,28 +111,60 @@ const bt = {
 // }
 // preOrder(bt)
 
-// 中序遍历递归版本（左根右）
-var recInorder = function(tree) {
+// // 中序遍历递归版本（左根右）
+// var recInorder = function(tree) {
+//     if(!tree) { return }
+//     recInorder(tree.left)
+//     console.log(tree.val)
+//     recInorder(tree.right)
+// }
+
+// recInorder(bt)
+
+// // 中序遍历非递归版本（左根右）
+// var inOrder = function(tree) {
+//     var p = tree
+//     var stack = []
+//     while(p || stack.length) {
+//         while(p) {
+//             stack.push(p)
+//             p = p.left
+//         }
+//         var n = stack.pop()
+//         console.log(n.val)
+//         p = n.right
+//     }
+// }
+// inOrder(bt)
+
+
+//后续遍历递归版本（左右根）
+var recLastorder = function(tree) {
     if(!tree) { return }
-    recInorder(tree.left)
+    recLastorder(tree.left)
+    recLastorder(tree.right)
     console.log(tree.val)
-    recInorder(tree.right)
 }
+recLastorder(bt)
 
-recInorder(bt)
-
-// 中序遍历非递归版本（左根右）
-var inOrder = function(tree) {
-    var p = tree
-    var stack = []
-    while(p || stack.length) {
-        while(p) {
-            stack.push(p)
-            p = p.left
+//后续遍历非递归版本
+var lastOrder = function(tree) {
+    let stack = [tree] 
+    let p = []
+    while(stack.length) {
+        let n = stack.pop()
+        p.push(n)
+        if(n.left) stack.push(n.left)
+        if(n.right) stack.push(n.right)
+    }
+    console.log(p)
+    while(p.length) {
+        let t = p.pop()
+        if(t.val) {
+            console.log(t.val)
         }
-        var n = stack.pop()
-        console.log(n.val)
-        p = n.right
     }
 }
-inOrder(bt)
+lastOrder(bt)
+
+

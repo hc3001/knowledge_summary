@@ -29,13 +29,21 @@
 //https://www.xuecaijie.com/it/157.html#1Q64p5DeC8dKFF
 
 //4、状态码
+//1** 响应信息，服务器接收到请求，正在处理中
+//2** 成功响应请求
+//3** 重定向，表示完成请求，需要进一步操作
+//4** 客户端请求错误
+//5** 服务器错误
+
+//常用状态码
 //200 表示请求成功
 //404 请求的资源没有找到
 //500 服务器内部错误
 //304 Not Modified 浏览器端缓存资源有效
+//301 该资源已经被永久改变了位置，一般会返回location重定向新的地址
 //202 已经接收，但是未处理
 //403 服务器已经收到请求，但是拒绝执行它
-//301 该资源已经被永久改变了位置，一般会返回location重定向新的地址
+
 
 //5、content-type/Accept，Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型，比如：Content-Type：text/html html、text/plain 纯文本;
 //常见content-type
@@ -45,7 +53,9 @@
 
 //6、前端安全 XSS、CSRF 是什么？
 //xss：跨站脚本攻击。（执行脚本）
+// https://tech.meituan.com/2018/09/27/fe-security.html
 // csrf：跨站伪装请求。（伪造用户）
+// https://tech.meituan.com/2018/10/11/fe-security-csrf.html
 
 //7、defer、 async、 preload、 prefetch 的区别是什么？
 //defer 立即下载，同时页面解析，页面解析后延迟执行。
@@ -100,5 +110,12 @@
 
 //15、cookie
 //https://www.jianshu.com/p/6fc9cea6daa2
-
+//什么是cookie以及作用
+//cookie 就是一小段文本信息（key-value格式），用来记录用户状态。
+//cookie 机制
+//浏览器第一次请求 》》》》 服务端设置头部set-cookie 》》》》第二次请求带上上次的cookie 》》》》 服务端根据cookie返回相对应的资源
+//cookie 四个属性（name=value， Expires， domain， path）
+//expires cookie的有效时间，单位为秒，设置为0立即清除，设置为负数为临时cookie，设置为正为多少秒个失效。
+//修改删除cookie，document.cookie 直接设置， 可用写一个方法来读取cookie
+//cookie风险，存在csrf 跨站伪造请求风险，一般用token来识别身份。
 
