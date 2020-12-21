@@ -54,8 +54,18 @@
 //6、前端安全 XSS、CSRF 是什么？
 //xss：跨站脚本攻击。（执行脚本）
 // https://tech.meituan.com/2018/09/27/fe-security.html
+// 什么是 xss， xss即跨站脚本攻击
+// xss本质，恶意代码和正常代码混在一起，浏览器无法区分，导致恶意代码被执行
+// 注入恶意代码的方法：1、用户的 UGC 信息， 2、来自第三方的链接 3、url参数 4、post参数
+// xss分类，存储型：存储型 XSS 的恶意代码存在数据库里，类似论坛发帖、用户私信。 反射型：攻击者构造出特殊的 URL，恶意代码存在 URL 里。 DOM型，前端执行特殊的url。
+// 防护策略：输入过滤，转义 HTML
+
 // csrf：跨站伪装请求。（伪造用户）
 // https://tech.meituan.com/2018/10/11/fe-security-csrf.html
+// 什么是csrf， csrf即跨站伪造请求
+// csrf 典型攻击流程，1、登录a.com,并保留了cookie 凭证 2、诱导受害者访问b.com 3、b.com 发送请求到a.com，浏览器默认带上cookie 4、a.com服务端误认为是a.com 发送的请求，并执行。 5、攻击完成
+// csrf 分类，get 类型的csrf， post 类型的csrf，链接类型的csrf
+// 防护策略 1、阻止不明外域的访问（同源检测，Samesite Cookie） 2、csrf token 验证
 
 //7、defer、 async、 preload、 prefetch 的区别是什么？
 //defer 立即下载，同时页面解析，页面解析后延迟执行。
