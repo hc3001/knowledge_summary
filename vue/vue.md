@@ -40,5 +40,26 @@ export let mutations={
 用途：防止全局同名CSS污染
 原理：在标签加上v-data-something属性，再在选择器时加上对应[v-data-something]，即CSS带属性选择器，以此完成类似作用域的选择方式
 
+#### 7、说说你对 SPA 单页面的理解，它的优缺点分别是什么？
+https://juejin.cn/post/6844903918753808398
+
+#### 8、怎样理解 Vue 的单向数据流？
+
+#### 9、 父组件可以监听到子组件的生命周期吗？
+```
+    this.$once('hook:beforeDestroy', function() {
+
+    })
+```
+#### 10、Vue 组件间通信有哪几种方式？
+
+#### 11、Vue 是如何实现数据双向绑定的？
+
+#### 12、 Vue router 相关
+导航守卫
+编程式导航
+组件懒加载
+
+
 
 
