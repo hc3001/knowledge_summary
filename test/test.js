@@ -20,3 +20,4 @@ var mySqrt = function(x) {
 
 let mid = mySqrt(50)
 console.log(mid)
+
