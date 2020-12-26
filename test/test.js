@@ -19,8 +19,6 @@ var mySqrt = function(x) {
 }
 
 let mid = mySqrt(50)
-console.log(mid)
-
 let obj = [
     {
         name: 4,
@@ -43,4 +41,3 @@ let obj = [
 let res = obj.reduce((accu, current, index)=> {
     return accu + current.age
 }, 0)
-console.log('res', res)
