@@ -107,6 +107,7 @@
 //12、http 和 https区别？
 //HTTP + ssl加密 + 认证 + 完整性保护 = HTTPS
 //默认端口http 80， https 443
+// https://juejin.cn/post/6844903504046211079
 
 //13、如何理解回流和重绘？
 //https://github.com/LuckyWinty/blog/blob/master/markdown/Q%26A/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E5%8E%9F%E7%90%86%E8%AF%A6%E7%BB%86%E6%80%BB%E7%BB%93%E4%BA%8C(%E9%9D%A2%E8%AF%95%E9%A2%98).md
