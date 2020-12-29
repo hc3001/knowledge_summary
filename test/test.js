@@ -42,18 +42,6 @@ let res = obj.reduce((accu, current, index)=> {
     return accu + current.age
 }, 0)
 
-let arrList = [
-    [1, 1, 1],
-    [2, 2, 2],
-    [3, 3, 3],
-    [4, 4, 4]
-]
-
-let ar
-ar = arrList[0].map((item1, index1) => {
-    return arrList.map((item2, index2) => {
-        return item2[index1]
-    })
-})
-
-console.log(ar)
+let str = 'sdfsa11da222dsfa333'
+let t = str.replace(/\d+/g, 'number')
+console.log(t)
