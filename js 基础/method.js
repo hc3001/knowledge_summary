@@ -73,4 +73,31 @@ let resFun = template('我是名字叫{{name}}，我的工作事{{work}}，我�
 console.log('res', resFun)
 
 // 4、正则相关问题
+// ①、横向模糊，匹配的字符串长度不固定，可以多种情况
+var regex = /ab{2,5}c/g //b有多种长度的情况
+var string = "abc abbc abbbc abbbbc abbbbbc abbbbbbc"
+console.log( string.match(regex) )
+// => ["abbc", "abbbc", "abbbbc", "abbbbbc"]
+
+// ②、纵向模糊，匹配的字符串可以有多种可能
+var regex = /a[123]b/g
+var string = "a0b a1b a2b a3b a4b"
+console.log( string.match(regex)) 
+
+// ③、字符组，匹配一个字符[abc], 匹配abc之一， 可以范围表示[a\-z] 和 排除字符[^abc]
+// 常见简写形式
+// \d就是[0-9] \D就是[^0-9] \w就是[0-9a-zA-Z_] \W是[^0-9a-zA-Z_] \s是[ \t\v\n\r\f]  .就是[^\n\r\u2028\u2029] 
+// 量词 {m,} 至少出现m次， {m} 出现m次 ? 出现或不出现  + 至少出现一次  * 出现任意次
+//分组
+var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = "2017-06-12";
+var result = string.replace(regex, function() {
+	return RegExp.$2 + "/" + RegExp.$3 + "/" + RegExp.$1;
+});
+console.log(result); 
+
+
+
+
+
 
