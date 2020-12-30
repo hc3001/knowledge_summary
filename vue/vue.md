@@ -60,6 +60,13 @@ https://juejin.cn/post/6844903918753808398
 编程式导航
 组件懒加载
 
+#### 13、 Vuex
+State
+Getter
+Mutation
+Action
+
+
 
 
 

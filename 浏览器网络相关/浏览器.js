@@ -108,6 +108,7 @@
 //HTTP + ssl加密 + 认证 + 完整性保护 = HTTPS
 //默认端口http 80， https 443
 // https://juejin.cn/post/6844903504046211079
+// https://www.cnblogs.com/cxuanBlog/p/12735623.html
 
 //13、如何理解回流和重绘？
 //https://github.com/LuckyWinty/blog/blob/master/markdown/Q%26A/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E5%8E%9F%E7%90%86%E8%AF%A6%E7%BB%86%E6%80%BB%E7%BB%93%E4%BA%8C(%E9%9D%A2%E8%AF%95%E9%A2%98).md
@@ -129,4 +130,13 @@
 //expires cookie的有效时间，单位为秒，设置为0立即清除，设置为负数为临时cookie，设置为正为多少秒个失效。
 //修改删除cookie，document.cookie 直接设置， 可用写一个方法来读取cookie
 //cookie风险，存在csrf 跨站伪造请求风险，一般用token来识别身份。
+
+//16、http(超文本传输协议)协议
+// 分应用层、传输层、网络层、网络接口层
+// 建立一个 TCP 连接时需要三次握手（TCP 是面向连接的、可靠的、基于字节流的传输层通信协议）
+// 握手即发包到接收的过程,整个过程相当于一个打电话过程
+// TCP协议, 连接请求(SYN)/授予连接(SYN+ACK)/确认连接(ACK)
+// https://www.cnblogs.com/cxuanBlog/p/12735623.html
+
+//17、 什么是 RESTful  
 
