@@ -2,6 +2,7 @@
 // 在发起复杂请求之前，浏览器会先发起OPTIONS请求到服务器，让服务器判断是否允许该实际请求。
 // OPTIONS 请求头一般带有 Access-Control-Request-Method、Access-Control-Request-Headers、origin 服务器根据请求头判断是否允许该实际请求。
 // OPTIONS 预请求用于复杂请求和跨域请求。
+// https://www.ruanyifeng.com/blog/2016/04/cors.html
 
 //2、什么是跨域，解决跨域的几种方式？
 // 在浏览器同源策略（同协议、host、端口）下，造成在一个域下的文本或脚本访问不到另一个域的资源，这里要注意，跨域请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了 。
@@ -139,4 +140,6 @@
 // https://www.cnblogs.com/cxuanBlog/p/12735623.html
 
 //17、 什么是 RESTful  
+
+//18、前端性能优化  https://segmentfault.com/a/1190000022205291
 
