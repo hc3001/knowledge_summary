@@ -7,3 +7,4 @@
 // 伪元素与伪类
 // css 1px像素适配  
 // css 动画
+// overflow 适用于块级元素，内部包一层div（div含多个span），需要设置内层div white-space:nowarp，不然不会出现滑动
