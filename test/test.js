@@ -68,3 +68,27 @@
 let types = Object.prototype.toString.call('')
 
 types.replace
+
+
+let xhr = new XMLHttpRequest()
+
+xhr.onreadystatechange(() => {
+    if(xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText)
+    }
+})
+
+xhr.open('get', url, true)
+xhr.send(null)
+
+
+let cancelToken = axios.CancelToken//构造函数
+let source = cancelToken.source()//返回一个对象包含token(promise 对象)，cancel
+axios.get('/uer/1233', {
+    cancelToken: source.token // xhr.abort()
+}).catch(() => {
+
+})
+
+source.cancel('cancel')
+

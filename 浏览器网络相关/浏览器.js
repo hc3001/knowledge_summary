@@ -29,6 +29,13 @@
 //https://segmentfault.com/a/1190000006879700
 //https://www.xuecaijie.com/it/157.html#1Q64p5DeC8dKFF
 
+// 1、DNS 域名解析，递归查找域名ip映射关系。
+// 2、建立TCP链接，三次握手，1、请求连接（发送SYN报文）2、确认客户链接，发送服务端链接（ACK+SYN）3、客户端确认连接，握手结束
+// 3、发送http 请求，服务端返回数据
+// 4、关闭TCP链接，四次挥手，1、客户端表示没有数据发送（fin） 2、服务端同意关闭请求（ACK） 3、服务端表示没有数据发送（fin） 4、客户端同意关闭请求（ACK）
+// 5、页面渲染（构建DOM树、样式计算、构建布局树、构建分层树、栅格化、显示）
+
+
 //4、状态码
 //1** 响应信息，服务器接收到请求，正在处理中
 //2** 成功响应请求
@@ -69,7 +76,7 @@
 // 防护策略 1、阻止不明外域的访问（同源检测，Samesite Cookie） 2、csrf token 验证
 
 //7、defer、 async、 preload、 prefetch 的区别是什么？
-//defer 立即下载，同时页面解析，页面解析后延迟执行。
+//defer 立即下载，同时页面解析，页面解析后延迟执行。(defer 特性仅适用于外部脚本)
 //async 立即下载，同时页面解析，下载完后停止页面解析，立即执行脚本，所以不保证顺序执行。
 //defer、async 只能直接加在script上，preload、 prefetch用link rel中可以加载任何资源。
 //preload 立即下载，同时页面解析，需要用到下载的脚本时执行。如果没有下载完，等待下载。
@@ -127,20 +134,33 @@
 //cookie 就是一小段文本信息（key-value格式），用来记录用户状态。
 //cookie 机制
 //浏览器第一次请求 》》》》 服务端设置头部set-cookie 》》》》第二次请求带上上次的cookie 》》》》 服务端根据cookie返回相对应的资源
-//cookie 四个属性（name=value， Expires， domain， path）
+//cookie 四个属性（name=value， Expires， domain， path，sameSite、httpOnly）
 //expires cookie的有效时间，单位为秒，设置为0立即清除，设置为负数为临时cookie，设置为正为多少秒个失效。
 //修改删除cookie，document.cookie 直接设置， 可用写一个方法来读取cookie
 //cookie风险，存在csrf 跨站伪造请求风险，一般用token来识别身份。
 
 //16、http(超文本传输协议)协议
-// 分应用层、传输层、网络层、网络链接层
-// 建立一个 TCP 连接时需要三次握手（TCP 是面向连接的、可靠的、基于字节流的传输层通信协议）
+// TCP/IP 网络模型分 应用层、传输层、网络层、网络链接层
+// 建立一个 TCP（传输控制协议，帮助计算机连接到 internet服务） 连接时需要三次握手（TCP 是面向连接的、可靠的、基于字节流的传输层通信协议）
 // 握手即发包到接收的过程,整个过程相当于一个打电话过程
 // TCP协议, 连接请求(SYN)/授予连接(SYN+ACK)/确认连接(ACK)
 // https://www.cnblogs.com/cxuanBlog/p/12735623.html
 // https://segmentfault.com/a/1190000022625538
 
-//17、 什么是 RESTful  
+//17、 什么是 RESTful  Restful 就是一种rest风格的api，基本设计原则1、资源  2、统一接口 3、URL 4、无状态
+// https://www.jianshu.com/p/7f8810c28ab6
+
 
 //18、前端性能优化  https://segmentfault.com/a/1190000022205291
+// 静态文件使用cdn 
+// 优化css写法，减少多层级写法
+// 布局尽量flexbox
+// 减少dom 的回流
+// script 加载使用defer， 或者放在html后面
+// 图片压缩并且懒加载
+// 图片尽量使用字体图标
+// 善于利用缓存
+// 减少http请求
+// vue 路由使用懒加载，代码分割，按需加载代码
+
 
