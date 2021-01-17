@@ -5,3 +5,8 @@
 // FormDate 对象
 // File 对象、FileList 对象、 FileReader 对象
 // 原生拖拽api(移动端：touchstart、touchmove、touchend，PC端：mousedown、mousemove、mouseup)
+
+//1、防止自己的网站被iframe引用,https://ihongchao.com/post/578/
+if (self !== window.top) {
+    top.location.href = self.location.href
+}

@@ -93,34 +93,36 @@
 // source.cancel('cancel')
 
 
-class Testdan {
-    constructor() {
+// class Testdan {
+//     constructor() {
 
-    }
-    static getDatalist() {
-        if(Testdan.isGetdata) {
-            return Testdan.isGetdata
-        } else {
-            Testdan.isGetdata = new Testdan()
-            return Testdan.isGetdata
-        }
-    }
-}
+//     }
+//     static getDatalist() {
+//         if(Testdan.isGetdata) {
+//             return Testdan.isGetdata
+//         } else {
+//             Testdan.isGetdata = new Testdan()
+//             return Testdan.isGetdata
+//         }
+//     }
+// }
 
-let A = Testdan.getDatalist()
-let B = Testdan.getDatalist()
-console.log(A === B)
+// let A = Testdan.getDatalist()
+// let B = Testdan.getDatalist()
+// console.log(A === B)
 
-let test = (function testDan1() {
-    let t = null
-    return function() {
-        if(!t) {
-            t = new Testdan()
-        }
-        return t
-    }
-})()
-let C = test()
-let D = test()
-console.log(C === D)
+// let test = (function testDan1() {
+//     let t = null
+//     return function() {
+//         if(!t) {
+//             t = new Testdan()
+//         }
+//         return t
+//     }
+// })()
+// let C = test()
+// let D = test()
+// console.log(C === D)
 
+let urls = ['a', 'b', 'c', 'd']
+console.log(urls.splice(0, 2), urls)
