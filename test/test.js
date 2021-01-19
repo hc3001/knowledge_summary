@@ -59,7 +59,7 @@
 //                     console.log('ar', ar)
 //                     resolve(ar)
 //                 }
-//             }) 
+//             })
 // 		})
 // 	})
 // }
@@ -68,7 +68,6 @@
 // let types = Object.prototype.toString.call('')
 
 // types.replace
-
 
 // let xhr = new XMLHttpRequest()
 
@@ -81,7 +80,6 @@
 // xhr.open('get', url, true)
 // xhr.send(null)
 
-
 // let cancelToken = axios.CancelToken//构造函数
 // let source = cancelToken.source()//返回一个对象包含token(promise 对象)，cancel
 // axios.get('/uer/1233', {
@@ -92,35 +90,122 @@
 
 // source.cancel('cancel')
 
+// class Testdan {
+//     constructor() {
 
-class Testdan {
-    constructor() {
+//     }
+//     static getDatalist() {
+//         if(Testdan.isGetdata) {
+//             return Testdan.isGetdata
+//         } else {
+//             Testdan.isGetdata = new Testdan()
+//             return Testdan.isGetdata
+//         }
+//     }
+// }
 
-    }
-    static getDatalist() {
-        if(Testdan.isGetdata) {
-            return Testdan.isGetdata
-        } else {
-            Testdan.isGetdata = new Testdan()
-            return Testdan.isGetdata
+// let A = Testdan.getDatalist()
+// let B = Testdan.getDatalist()
+// console.log(A === B)
+
+// let test = (function testDan1() {
+//     let t = null
+//     return function() {
+//         if(!t) {
+//             t = new Testdan()
+//         }
+//         return t
+//     }
+// })()
+// let C = test()
+// let D = test()
+// console.log(C === D)
+
+// Array.prototype.binds = function(obj, arg) {
+//     let self = this
+//     return function() {
+//         return self.call(obj, arg)
+//     }
+// }
+
+// //节流
+// function jl(func, time) {
+//     var content
+//     var pre = 0
+//     return function() {
+//         let t = Date.now()
+//         content = this
+//         if(t - pre > time) {
+//             func.call(content, arguments)
+//             pre = t
+//         }
+//     }
+// }
+
+// //防抖
+// function fd(func, time) {
+//     let t
+//     return function() {
+//         clearTimeout(t)
+//         let content = this
+//         t = setTimeout(()=> {
+//             func.call(content, arguments)
+//         }, time)
+//     }
+// }
+
+// let ts = 'aBAa'
+
+// let transTs = ts.replace(/([a-z])|([A-Z])/g, (arg1, arg2, arg3) => {
+//     if(arg2) {
+//         return arg2.toUpperCase()
+//     } else if(arg3){
+//         return arg3.toLowerCase()
+//     }
+// })
+// console.log('transTs', transTs)
+
+// // 节流（一秒内只触发一次函数）
+// let fotto = function(fun, limit) {
+// 	let t = 0
+// 	return function() {
+//         let context = this
+//         if(Date.now() - t >= limit) {
+//             t = Date.now()
+//             fun.call(contenxt, arguments)
+//         }
+//     }
+// }
+
+// // 防抖（间隔100毫秒内触发，从不触发）
+// let jsl = function(fun, limit) {
+//     let t = null
+//     return function() {
+//         const context = this
+//         clearTimeout(t)
+//         t = setTimeou(()=> {
+//             fun.call(context, arguments)
+//         }, limit)
+//     }
+// }
+
+// 找出最长不重复字符串长度
+let test = 'abdcaddefapsdakdf'
+function maxLenString(s) {
+    let res = 0
+    let win = []
+    let i = 0
+    while(i < s.length) {
+        let item = s[i]
+        let index = win.indexOf(item)
+        console.log('item', item, index)
+        if(!(index === -1)) {
+            win.splice(0, index + 1)
         }
+        win.push(item)
+        res = Math.max(res, win.length)
+        i++
     }
+    return res
 }
-
-let A = Testdan.getDatalist()
-let B = Testdan.getDatalist()
-console.log(A === B)
-
-let test = (function testDan1() {
-    let t = null
-    return function() {
-        if(!t) {
-            t = new Testdan()
-        }
-        return t
-    }
-})()
-let C = test()
-let D = test()
-console.log(C === D)
-
+console.log(maxLenString(test))

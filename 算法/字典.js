@@ -3,6 +3,7 @@ let m = new Map()
 m.set('a', 1)
 let arr = [1, 3, 5]
 
+// 最小覆盖子串 leetcode 76
 /**
  * @param {string} s
  * @param {string} t
@@ -47,5 +48,23 @@ var minWindow = function(s, t) {
 
 console.log(minWindow("ADOBECODEBANC", "ABC"))
 
-// 无重复的最长子串（滑动窗口法）
-
+// 无重复的最长子串（滑动窗口法）leetcode 3
+let test = 'abdcaddefapsdakdf'
+function maxLenString(s) {
+    let res = 0
+    let win = []
+    let i = 0
+    while(i < s.length) {
+        let item = s[i]
+        let index = win.indexOf(item)
+        console.log('item', item, index)
+        if(!(index === -1)) {
+            win.splice(0, index + 1)
+        }
+        win.push(item)
+        res = Math.max(res, win.length)
+        i++
+    }
+    return res
+}
+console.log(maxLenString(test))

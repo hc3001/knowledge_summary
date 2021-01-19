@@ -66,6 +66,8 @@ Getter
 Mutation
 Action
 
+#### 14、实现一个v-model
+
 
 
 
