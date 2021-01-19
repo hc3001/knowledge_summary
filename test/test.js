@@ -93,6 +93,12 @@
 // class Testdan {
 //     constructor() {
 
+<<<<<<< HEAD
+=======
+// class Testdan {
+//     constructor() {
+
+>>>>>>> a43327948ddf26cd24d2422d795c606867a9655f
 //     }
 //     static getDatalist() {
 //         if(Testdan.isGetdata) {
@@ -121,6 +127,7 @@
 // let D = test()
 // console.log(C === D)
 
+<<<<<<< HEAD
 // Array.prototype.binds = function(obj, arg) {
 //     let self = this
 //     return function() {
