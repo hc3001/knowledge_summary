@@ -25,31 +25,47 @@ while(p) {
 }
 console.log(a)
 
-//翻转链表
+//翻转链表(双指针)
 let test = function(a) {
     let p1 = a
     let p2 = null
     while(p1) {
-        console.log(p1.value, p2 && p2.value)
         let temp = p1.next
         p1.next = p2
         p2 = p1
         p1 = temp
     }
-    console.log(p2)
     return p2
 }
 
 console.log(test(a))
 
 
-//删除排序链表中的重复元素
-//判断链表是否成环
+//删除排序链表中的重复元素（）
+//判断链表是否成环（快慢指针）
 //回文链表
-//判断二个链表是否相交
+//判断二个链表是否相交 leetcode 160
+//思路，用map储存链表，二次循环相加，O（n+m）
+var getIntersectionNode = function (headA, headB) { 
+    if(!headA || !headB) {
+        return null
+    }
+    let map = new Map()
+    let sA = headA
+    let sB = headB
+    while(sA) {
+        map.set(sA, 1)
+        sA = sA.next
+    }
+    while(sB) {
+        if(map.get(sB)) {
+            return true
+        }
+        sB = sB.next
+    }
+}
 
 //编写一个instanceOf 方法
-
 function instanceOf(a, cla) {
     let p = a
     while(p) {

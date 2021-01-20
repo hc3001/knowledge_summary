@@ -93,12 +93,10 @@
 // class Testdan {
 //     constructor() {
 
-<<<<<<< HEAD
-=======
 // class Testdan {
 //     constructor() {
 
->>>>>>> a43327948ddf26cd24d2422d795c606867a9655f
+
 //     }
 //     static getDatalist() {
 //         if(Testdan.isGetdata) {
@@ -127,7 +125,6 @@
 // let D = test()
 // console.log(C === D)
 
-<<<<<<< HEAD
 // Array.prototype.binds = function(obj, arg) {
 //     let self = this
 //     return function() {
@@ -196,23 +193,65 @@
 //     }
 // }
 
-// 找出最长不重复字符串长度
-let test = 'abdcaddefapsdakdf'
-function maxLenString(s) {
-    let res = 0
-    let win = []
-    let i = 0
-    while(i < s.length) {
-        let item = s[i]
-        let index = win.indexOf(item)
-        console.log('item', item, index)
-        if(!(index === -1)) {
-            win.splice(0, index + 1)
-        }
-        win.push(item)
-        res = Math.max(res, win.length)
-        i++
+// // 找出最长不重复字符串长度
+// let test = 'abdcaddefapsdakdf'
+// function maxLenString(s) {
+//     let res = 0
+//     let win = []
+//     let i = 0
+//     while(i < s.length) {
+//         let item = s[i]
+//         let index = win.indexOf(item)
+//         console.log('item', item, index)
+//         if(!(index === -1)) {
+//             win.splice(0, index + 1)
+//         }
+//         win.push(item)
+//         res = Math.max(res, win.length)
+//         i++
+//     }
+//     return res
+// }
+// console.log(maxLenString(test))
+let s = 3
+let nums = [1, 1]
+var minSubArrayLen = function(s, nums) {
+    if(nums.length === 0 || !nums.length) {
+        return 0
     }
-    return res
-}
-console.log(maxLenString(test))
+    let left = 0
+    let right = 0
+    let res = +Infinity
+    let arr = []
+    function isLessthan(arr) {
+        let sum = arr.reduce((pre, curr) => {
+            return pre + curr
+        }, 0)
+        return sum - s >= 0
+    }
+    console.log(nums.length)
+    while(right < nums.length) {
+        let item = nums[right]
+        right++
+        //如果小于s加入arr，并跳出循环
+        arr.push(item)
+        if(!isLessthan(arr)) {
+            continue
+        }
+        while(left < right) {
+            console.log(arr, left, right, isLessthan(arr))
+            //满足条件left++ ，不满足直接跳出本次循环
+            if(isLessthan(arr)) {
+                res = Math.min(res, right - left)
+                left++
+                arr = nums.slice(left, right)
+            } else {
+                break
+            }
+        }
+    }
+    return res==+Infinity ? 0 : res
+};
+
+let t = minSubArrayLen(s, nums) 
+console.log('t', t)

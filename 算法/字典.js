@@ -69,5 +69,108 @@ function maxLenString(s) {
 }
 console.log(maxLenString(test))
 
-// 找到字符串中所有字母异位词(滑动窗口法) 438
+// 找到字符串中所有字母异位词(滑动窗口法) leetcode 438
+// 思路：定义一个left 和 right，循环right一直右移动，当right-left > length 时，左left移动，异位词的判断可以用一个valid变量保存判断
 
+
+// 给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 leetcode 239
+let nums = [1,3,-1,-3,5,3,6,7]
+let k = 3
+
+// 此解法复杂度较高
+var maxSlidingWindow = function(nums, k) {
+    if(nums.length === 0 || !nums.length) {
+        return []
+    }
+    let left = 0
+    let right = k
+    let res = [findMax(left, right)]
+    while(right < nums.length) {
+        left++
+        right++
+        res.push(findMax(left, right))
+    }
+    function findMax(left, right) {
+        let max = -Infinity
+        for(let i=left; i<right; i++) {
+            if(nums[i] > max) {
+                max = Math.max(max, nums[i])
+            }
+        }
+        return max
+    }
+    return res
+};
+
+
+//长度最小的子数组 leetcode 209
+
+let s = 3
+let nums = [1, 1]
+var minSubArrayLen = function(s, nums) {
+    if(nums.length === 0 || !nums.length) {
+        return 0
+    }
+    let left = 0
+    let right = 0
+    let res = +Infinity
+    let arr = []
+    function isLessthan(arr) {
+        let sum = arr.reduce((pre, curr) => {
+            return pre + curr
+        }, 0)
+        return sum - s >= 0
+    }
+    console.log(nums.length)
+    while(right < nums.length) {
+        let item = nums[right]
+        right++
+        //如果小于s加入arr，并跳出循环
+        arr.push(item)
+        if(!isLessthan(arr)) {
+            continue
+        }
+        while(left < right) {
+            console.log(arr, left, right, isLessthan(arr))
+            //满足条件left++ ，不满足直接跳出本次循环
+            if(isLessthan(arr)) {
+                res = Math.min(res, right - left)
+                left++
+                arr = nums.slice(left, right)
+            } else {
+                break
+            }
+        }
+    }
+    return res==+Infinity ? 0 : res
+};
+
+// 解法二
+/**
+ * @param {number} s
+ * @param {number[]} nums
+ * @return {number}
+ */
+let minSubArrayLen = function (s, nums) {
+    let n = nums.length
+    // 定义[i,...j]滑动窗口 取这个窗口里的和
+    let i = 0
+    let j = -1
+  
+    let sum = 0
+    let res = Infinity
+  
+    while (i < n) {
+      if (sum < s) {
+        sum += nums[++j]
+      } else {
+        sum -= nums[i]
+        i++
+      }
+  
+      if (sum >= s) {
+        res = Math.min(res, j - i + 1)
+      }
+    }
+    return res === Infinity ? 0 : res
+  }

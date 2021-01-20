@@ -11,7 +11,7 @@
 // 把响应拦截器push 到chain中
 // while循环，promise.resolve() 链式调用
 //  while (chain.length) {
-//     const { resolved, rejected } = chain.shift()!
+//     const { resolved, rejected } = chain.shift()
 //     promise = promise.then(resolved, rejected)
 //  }
 

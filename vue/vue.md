@@ -66,7 +66,11 @@ Getter
 Mutation
 Action
 
-#### 14、实现一个v-model
+#### 14、封装组件在组件上使用v-model
+1、v-model 相当于v-bind 和 v-on 合体
+2、组件上使用v-model，默认会绑定value值，定义input事件（不同于input里面的input事件）
+3、想改变默认绑定和事件，用model重新定义新的v-model绑定值{prop: 'checked', event: 'changed'}，再在子组件中触发changed改变checked值
+
 
 
 
