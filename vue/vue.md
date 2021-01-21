@@ -71,6 +71,18 @@ Action
 2、组件上使用v-model，默认会绑定value值，定义input事件（不同于input里面的input事件）
 3、想改变默认绑定和事件，用model重新定义新的v-model绑定值{prop: 'checked', event: 'changed'}，再在子组件中触发changed改变checked值
 
+#### 15、vue 生命周期应用场景概述
+1、created：数据初始化，异步数据的请求适合在created 的钩子中使用（ssr服务端渲染可以用）
+2、beforeMounted： 虚拟Dom已经创建完成，但是还没挂载到页面
+3、mounted： 真实的Dom挂载完毕，数据完成双向绑定，可以进行一些dom操作函数
+4、mupdated： 最好不要在此期间更改数据，因为这可能会导致无限循环的更新
+5、beforeDestroy： 清除计时器
+6、destroyed： 事件监听器被移除
+keep-alive
+1、activated：在组件缓存激活事触发的事件
+使用场景：前进刷新，后退缓存用户浏览数据（也可以用嵌套路由解决）
+2、deactivated：在组件缓存激活事触发的事件
+
 
 
 

@@ -9,7 +9,8 @@
 使用apply和call
 作为构造函数(this指向实例)
 
-箭头函数: 箭头函数会捕获其所在上下文的this值, 作为自己的this值
+// 箭头函数: 箭头函数会捕获其所在上下文的this值, 作为自己的this值
+// 			不可以使用arguments对象，该对象在函数体内不存在
 
 //三、 http 发送请求代码
 // 1、创建AJAX 对象
@@ -96,5 +97,42 @@ function bar() {
 
 bar() //1
 
-// 7、 JS执行上下文栈
-// 当执行一个函数的，就会创建一个执行上下文，并且压入执行上下文栈，当函数执行完毕的时候，就会将函数的执行上下文从栈中弹出
+// 7、 JS执行过程
+var scope = "global scope";
+function checkscope(){
+    var scope2 = 'local scope';
+    return scope2;
+}
+checkscope();
+	// 1、checkscope 函数被创建，保存作用域链到内部属性[[scope]]
+		checkscope.[[scope]] = {
+			globalContext.VO
+		}
+	// 2、执行checkscope函数，创建JS执行上下文（一个对象）
+		
+	// 3、当执行一个函数的，就会创建一个执行上下文，checkscope 函数执行上下文被压入执行上下文栈
+		ECStack = [
+			checkscopeContext,
+			globalContext
+		];
+		// ①、准备工作（会给变量对象添加形参、函数声明、变量声明等初始的属性值）
+		checkscopeContext = {
+			Scope: checkscope.[[scope]],
+		}
+		checkscopeContext = {
+			AO: {
+				arguments: {
+					length: 0
+				},
+				scope2: undefined
+			},
+			Scope: [AO, [[Scope]]]
+		}
+		// ②、执行函数，修改 AO（活动对象） 的属性值
+	// 4、当函数执行完毕的时候，就会将函数的执行上下文从栈中弹出
+
+// 8、函数的重载：函数名相同，函数的参数不同(包括参数个数和参数类型)，根据参数的不同去执行不同的操作， JS中没有函数重载。
+// https://juejin.cn/post/6844903933480009741
+// 模拟函数重载
+
+// 9、尾调用与尾递归

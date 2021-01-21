@@ -5,6 +5,9 @@
 //transform 元素的旋转（rotate）、移动（translate）、缩放（scale）
 //transition 指定一个元素属性值发生变化时执行的transiton效果
 // 伪元素与伪类
-// css 1px像素适配  
+// css 1px像素适配：伪元素 + tansform: scale(1, 0.5) 
+    // https://juejin.cn/post/6844903877947424782#heading-9 
 // css 动画
 // overflow 适用于块级元素，内部包一层div（div含多个span），需要设置内层div white-space:nowarp，不然不会出现滑动
+// css选择器权重
+// JS 给dom元素添加一个类
