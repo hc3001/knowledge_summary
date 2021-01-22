@@ -115,7 +115,7 @@ checkscope();
 			checkscopeContext,
 			globalContext
 		];
-		// ①、准备工作（会给变量对象添加形参、函数声明、变量声明等初始的属性值）
+		// ①、准备工作（会给活动对象添加形参、函数声明、变量声明等初始的属性值）
 		checkscopeContext = {
 			Scope: checkscope.[[scope]],
 		}
@@ -136,3 +136,5 @@ checkscope();
 // 模拟函数重载
 
 // 9、尾调用与尾递归
+
+// 10、Object.create(obj) 以参数为原型（__proto__）创建一个空对象

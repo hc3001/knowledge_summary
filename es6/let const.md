@@ -25,3 +25,14 @@ var {x, y = 5} = {x: 1}
 //4、 函数的扩展
     函数参数的默认值
     rest 参数
+
+//5、数组的扩展
+    扩展运算符(复制数组、合并数组、转字符串为数组)
+    Array.from() (把两类对象转为真正的对象，类数组对象、可遍历对象)
+    数组实例方法：find() / findIndex() / fill() /keys() / entries() / values() / includes() / flat()
+
+//6、对象的扩展
+    for...in 循环对象
+    Object.keys(obj) 获取keys
+
+

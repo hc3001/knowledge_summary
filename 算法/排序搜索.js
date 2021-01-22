@@ -78,6 +78,7 @@
 //         if(arr.length <= 1) {
 //             return arr
 //         }
+//          //取第一个值可能存在最坏情况（排序好的情况），解决方式取中间的值
 //         const mid = arr[0]
 //         const left = []
 //         const right = []

@@ -96,7 +96,6 @@
 // class Testdan {
 //     constructor() {
 
-
 //     }
 //     static getDatalist() {
 //         if(Testdan.isGetdata) {
@@ -213,45 +212,146 @@
 //     return res
 // }
 // console.log(maxLenString(test))
-let s = 3
-let nums = [1, 1]
-var minSubArrayLen = function(s, nums) {
-    if(nums.length === 0 || !nums.length) {
-        return 0
-    }
-    let left = 0
-    let right = 0
-    let res = +Infinity
-    let arr = []
-    function isLessthan(arr) {
-        let sum = arr.reduce((pre, curr) => {
-            return pre + curr
-        }, 0)
-        return sum - s >= 0
-    }
-    console.log(nums.length)
-    while(right < nums.length) {
-        let item = nums[right]
-        right++
-        //如果小于s加入arr，并跳出循环
-        arr.push(item)
-        if(!isLessthan(arr)) {
-            continue
-        }
-        while(left < right) {
-            console.log(arr, left, right, isLessthan(arr))
-            //满足条件left++ ，不满足直接跳出本次循环
-            if(isLessthan(arr)) {
-                res = Math.min(res, right - left)
-                left++
-                arr = nums.slice(left, right)
-            } else {
-                break
-            }
-        }
-    }
-    return res==+Infinity ? 0 : res
-};
+// let s = 3
+// let nums = [1, 1]
+// var minSubArrayLen = function(s, nums) {
+//     if(nums.length === 0 || !nums.length) {
+//         return 0
+//     }
+//     let left = 0
+//     let right = 0
+//     let res = +Infinity
+//     let arr = []
+//     function isLessthan(arr) {
+//         let sum = arr.reduce((pre, curr) => {
+//             return pre + curr
+//         }, 0)
+//         return sum - s >= 0
+//     }
+//     console.log(nums.length)
+//     while(right < nums.length) {
+//         let item = nums[right]
+//         right++
+//         //如果小于s加入arr，并跳出循环
+//         arr.push(item)
+//         if(!isLessthan(arr)) {
+//             continue
+//         }
+//         while(left < right) {
+//             console.log(arr, left, right, isLessthan(arr))
+//             //满足条件left++ ，不满足直接跳出本次循环
+//             if(isLessthan(arr)) {
+//                 res = Math.min(res, right - left)
+//                 left++
+//                 arr = nums.slice(left, right)
+//             } else {
+//                 break
+//             }
+//         }
+//     }
+//     return res==+Infinity ? 0 : res
+// };
 
-let t = minSubArrayLen(s, nums) 
-console.log('t', t)
+// let t = minSubArrayLen(s, nums)
+// console.log('t', t)
+
+// var arr = [1, 3, 4, [2, 7], [4, 1, [10, 9]]]
+
+// var flat = function(arr) {
+//     let res = []
+//     function ts(arr) {
+//         for (let i = 0; i < arr.length; i++) {
+//             const item = arr[i]
+//             if(!Array.isArray(item)) {
+//                 res.push(item)
+//             } else {
+//                 ts(item)
+//             }
+//         }
+//     }
+//     ts(arr)
+//     return res
+// }
+
+// var flat1 = function(arr) {
+//     while(arr.find(item => Array.isArray(item))) {
+//         arr = [].concat(...arr)
+//     }
+//     return arr
+// }
+
+// console.log('arr', flat(arr), flat1(arr))
+
+// let test = Object.create({a: 1})
+// console.log('test', test, test.a)
+// for(var item in test) {
+//     if(test.hasOwnProperty(item)) {
+//         console.log('item', item)
+//     }
+// }
+
+// 冒泡排序
+// let test = [1, 3, 5, 2, 7, 6, 10]
+
+// function mpSort(origin) {
+//     for (let i = 0; i < origin.length - 1; i++) {
+//         const item = origin[i]
+//         for (let j = i; j < origin.length - i - 1; j++) {
+//             const temp = origin[j]
+//             const n = origin[j + 1]
+//             if(temp > n) {
+//                 origin[j] = origin[j + 1]
+//                 origin[j + 1] = temp
+//             }
+//         }
+//     }
+//     return origin
+// }
+
+// const res = mpSort(test)
+// console.log('res', res)
+
+// 快排时间复杂度o(n*logn)
+// function quickSort(arr) {
+//     　　if (arr.length <= 1) { return arr; }
+
+//     　　var pivotIndex = Math.floor(arr.length / 2);
+
+//     　　var pivot = arr.splice(pivotIndex, 1)[0];
+
+//     　　var left = [];
+
+//     　　var right = [];
+
+//     　　for (var i = 0; i < arr.length; i++){
+
+//     　　　　if (arr[i] < pivot) {
+
+//     　　　　　　left.push(arr[i]);
+
+//     　　　　} else {
+
+//     　　　　　　right.push(arr[i]);
+
+//     　　　　}
+
+//     　　}
+
+//     　　return quickSort(left).concat([pivot], quickSort(right));
+// }
+
+// const res = quickSort(test)
+// console.log('res', res)
+
+// let promise = new Promise(function(resolve, reject) {
+// 	console.log('Promise')
+//     resolve(1)
+//     console.log('Promise1')
+// })
+// promise.then((res) => {
+//     console.log('res', res)
+// })
+
+// 插入排序
+
+
