@@ -7,7 +7,7 @@
 //             if(temp < arr[j]) {
 //                 arr[j + 1] = arr[j]
 //                 arr[j] = temp
-//             }        
+//             }
 //         }
 //     }
 // }
@@ -22,7 +22,7 @@
 //             let temp = arr[j + 1]
 //             if(temp < arr[j]) {
 //                 arr[j + 1] = arr[j]
-//                 arr[j] = temp 
+//                 arr[j] = temp
 //             }
 //         }
 //     }
@@ -98,24 +98,58 @@
 // let newArr = quickSort(arr)
 // console.log(newArr)
 
-//搜索、二分搜索(必须是个有序数组)
-let arr = [1, 2, 4, 8, 10, 17]
-
-let dicSearch = function(arr, target) {
-    let low = 0
-    let high = arr.length
-    while(low <= high) {
-        let mid = Math.floor((low + high) / 2)
-        if(arr[mid] > target) {
-            high = mid - 1
-        } else if(arr[mid] < target) {
-            low = mid + 1
-        } else {
-            return mid
-        }
+//四、归并排序
+Array.prototype.mergeSort = function() {
+	const rec = (arr) => {
+		if (arr.length === 1) {
+			return arr
+		}
+		const mid = Math.floor(arr.length / 2)
+		const left = arr.slice(0, mid)
+		const right = arr.slice(mid, arr.length)
+		const orderLeft = rec(left)
+		const orderRight = rec(right)
+		const res = []
+		console.log('sss', orderLeft, orderRight)
+		while (orderLeft.length || orderRight.length) {
+			if (orderLeft.length && orderRight.length) {
+				res.push(orderLeft[0] < orderRight[0] ? orderLeft.shift() : orderRight.shift())
+			} else if (orderLeft.length) {
+				res.push(orderLeft.shift())
+			} else {
+				res.push(orderRight.shift())
+			}
+		}
+		return res
     }
-    return -1
+    const res = rec(this)
+	res.forEach((n, i) => {
+        this[i] = n
+    })
 }
 
-let res = dicSearch(arr, 2)
-console.log('res', res)
+const arr = [ 5, 4, 3, 2, 1 ]
+arr.mergeSort()
+console.log('arr', arr)
+
+//搜索、二分搜索(必须是个有序数组)
+// let arr = [1, 2, 4, 8, 10, 17]
+
+// let dicSearch = function(arr, target) {
+//     let low = 0
+//     let high = arr.length
+//     while(low <= high) {
+//         let mid = Math.floor((low + high) / 2)
+//         if(arr[mid] > target) {
+//             high = mid - 1
+//         } else if(arr[mid] < target) {
+//             low = mid + 1
+//         } else {
+//             return mid
+//         }
+//     }
+//     return -1
+// }
+
+// let res = dicSearch(arr, 2)
+// console.log('res', res)

@@ -28,7 +28,7 @@
 //主干流程：DNS解析、TCP连接、浏览器构建http request请求、 网络传输、 服务器构建http response 返回数据、 网络传输、 浏览器渲染页面
 //https://segmentfault.com/a/1190000006879700
 //https://www.xuecaijie.com/it/157.html#1Q64p5DeC8dKFF
-
+// https://juejin.cn/post/6844904054074654728
 // 1、DNS 域名解析，递归查找域名ip映射关系。
 // 2、建立TCP链接，三次握手，1、请求连接（发送SYN报文）2、确认客户链接，发送服务端链接（ACK+SYN）3、客户端确认连接，握手结束
 // 3、发送http 请求，服务端返回数据
@@ -141,9 +141,13 @@
 
 //16、http(超文本传输协议)协议
 // TCP/IP 网络模型分 应用层、传输层、网络层、网络链接层
-// 建立一个 TCP（传输控制协议，帮助计算机连接到 internet服务） 连接时需要三次握手（TCP 是面向连接的、可靠的、基于字节流的传输层通信协议）
-// 握手即发包到接收的过程,整个过程相当于一个打电话过程
-// TCP协议, 连接请求(SYN)/授予连接(SYN+ACK)/确认连接(ACK)
+    // HTTP 在应用层
+    // TCP 在传输层
+// 建立一个 TCP（传输控制协议，帮助计算机连接到 internet服务） 
+    // 连接时需要三次握手（TCP 是面向连接的、可靠的、基于字节流的传输层通信协议）
+    // 客户端连接请求(SYN)/服务器收到SYN报文段，并进行确认，自己还需要发送请求信息(SYN+ACK)/客户端确认连接(ACK)
+    // 握手即发包到接收的过程,整个过程相当于一个打电话过程
+    // SYN：发起一个新连接, ACK：确认序号有效, FIN：释放一个连接 
 // https://www.cnblogs.com/cxuanBlog/p/12735623.html
 // https://segmentfault.com/a/1190000022625538
 
@@ -152,7 +156,6 @@
 
 
 //18、前端性能优化  https://segmentfault.com/a/1190000022205291
-
 // 1、优化网络连接
     // 使用CDN
 // 2、减少请求数量
@@ -173,6 +176,19 @@
     // 布局尽量flexbox
     // 能够使用CSS实现的效果，尽量使用CSS而不使用JS实现    
 // 7、webpack优化
-    // 打包公共代码     
-    // 剔除无用代码
+    // 打包公共代码 （splitChunksPlugins）    
+    // 剔除无用代码（JS Tree Shaking）
 
+// 19、get 与 post的区别
+  // get 方法一般用于请求 post 一般用表单提交
+  // get 参数拼接在URL后面， post 放在body上
+  // get 请求的 URL 有长度限制，而 post 请求会把参数和值放在消息体中，对数据长度没有要求
+  // get 请求会被浏览器主动 cache，而 post 不会，除非手动设置  
+
+// 20、session 与 cookie 的区别
+    // session/cookie 都是用来跟踪用户状态的会话方式。
+    // session 储存在服务端，大小没有限制，可以保存多个对象
+    // cookie 保存再客户端只能是字符串，大小有限制4k，一般用于保存sessionId
+    // storage 字符串，本地缓存，储存空间大，不会与服务端进行数据传输。
+
+// https SSL/TLS 加密

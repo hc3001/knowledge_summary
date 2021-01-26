@@ -6,3 +6,9 @@ storage 字符串，本地缓存，储存空间大，不会与服务端进行数
 
 
 2、理解Vue和React区别
+
+
+3、echarts 常用的属性
+title 标题、legend 图例、gird 坐标系、x轴、y轴、tooltip 提示框组件、 datazoom区域缩放、 series 系列列表
+
+实现一个axios基本思路
