@@ -45,15 +45,16 @@ https://juejin.cn/post/6844903918753808398
 
 #### 8、怎样理解 Vue 的单向数据流？
 
-#### 9、 父组件可以监听到子组件的生命周期吗？
+#### 9、父组件可以监听到子组件的生命周期吗？
 ```
     this.$once('hook:beforeDestroy', function() {
 
     })
+
+    <Child @hook:mounted="doSomething" ></Child>
 ```
 #### 10、Vue 组件间通信有哪几种方式？
 
-#### 11、Vue 是如何实现数据双向绑定的？
 
 #### 12、 Vue router 相关
 导航守卫
@@ -69,18 +70,18 @@ Action
 #### 14、封装组件在组件上使用v-model
 1、v-model 相当于v-bind 和 v-on 合体
 2、组件上使用v-model，默认会绑定value值，定义input事件（不同于input里面的input事件）
-3、想改变默认绑定和事件，用model重新定义新的v-model绑定值{prop: 'checked', event: 'changed'}，再在子组件中触发changed改变checked值
+3、想改变默认绑定和事件，用model重新定义新的v-model绑定值{prop: 'checked', event: 'change'}，再在子组件中触发changed改变checked值
 
 #### 15、vue 生命周期应用场景概述
 1、created：数据初始化，异步数据的请求适合在created 的钩子中使用（ssr服务端渲染可以用）
 2、beforeMounted： 虚拟Dom已经创建完成，但是还没挂载到页面
 3、mounted： 真实的Dom挂载完毕，数据完成双向绑定，可以进行一些dom操作函数
-4、mupdated： 最好不要在此期间更改数据，因为这可能会导致无限循环的更新
+4、updated： 最好不要在此期间更改数据，因为这可能会导致无限循环的更新
 5、beforeDestroy： 清除计时器
 6、destroyed： 事件监听器被移除
 keep-alive
 1、activated：在组件缓存激活事触发的事件
-使用场景：前进刷新，后退缓存用户浏览数据（也可以用嵌套路由解决）
+使用场景：前进刷新，后退缓存用户浏览数据（也可以用嵌套路由解决）https://juejin.cn/post/6844903624099758094
 2、deactivated：在组件缓存激活事触发的事件
 
 
