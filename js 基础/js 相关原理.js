@@ -152,3 +152,57 @@ checkscope();
 		// 所有微任务也按顺序执行，且在以下场景会立即执行所有微任务
 			// 每个回调之后且js执行栈中为空。
 			// 每个宏任务结束后。
+
+//13、 es5 与 es6的继承
+// es5原型链继承
+function Parent() {
+	this.name = 'kevin'
+}
+
+Parent.prototype.sayName = function() {
+	console.log('kk', this.name)
+}
+
+function Child() {
+
+}
+
+Child.prototype = new Parent()
+Child.prototype.constructor = Child
+
+let n = new Child
+n.sayName()
+
+// 借用构造函数
+function Parent () {
+    this.names = ['kevin', 'daisy'];
+}
+
+function Child () {
+    Parent.call(this);
+}
+
+var child1 = new Child();
+
+// 原型式继承
+function createObj(o) {
+    function F(){}
+    F.prototype = o;
+    return new F();
+}
+
+
+// 14、模拟new操作
+function obsj() {
+	let obj = Object.create(null)
+	let Constructor = [].shift.call(arguments)
+	obj.__proto__ = Constructor.prototype
+	Constructor.apply(obj, arguments)
+	return obj
+}
+
+function Test(name) {
+	this.name = name
+}
+
+obsj(Test, 'hc')

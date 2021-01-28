@@ -84,6 +84,16 @@ keep-alive
 使用场景：前进刷新，后退缓存用户浏览数据（也可以用嵌套路由解决）https://juejin.cn/post/6844903624099758094
 2、deactivated：在组件缓存激活事触发的事件
 
+#### 16、Vue 的父组件和子组件生命周期钩子函数执行顺序
+
+加载渲染过程
+父 beforeCreate -> 父 created -> 父 beforeMount -> 子 beforeCreate -> 子 created -> 子 beforeMount -> 子 mounted -> 父 mounted
+子组件更新过程
+父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated
+父组件更新过程
+父 beforeUpdate -> 父 updated
+销毁过程
+父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed
 
 
 

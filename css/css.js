@@ -11,3 +11,5 @@
 // overflow 适用于块级元素，内部包一层div（div含多个span），需要设置内层div white-space:nowarp，不然不会出现滑动
 // css选择器权重
 // JS 给dom元素添加一个类
+// position: fixed 相对于视窗位置定位，失效情况：祖先元素或父元素transform 不为none
+    //原因：transform创建了一个新的堆叠上下文（类似z轴），其子元素都会受其堆叠上下文影响。

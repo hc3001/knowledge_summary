@@ -291,7 +291,7 @@
 // }
 
 // 冒泡排序
-let test = [2, 0, 1]
+// let test = [2, 0, 1]
 
 // function mpSort(origin) {
 //     for (let i = 0; i < origin.length - 1; i++) {
@@ -312,27 +312,27 @@ let test = [2, 0, 1]
 // console.log('res', res)
 
 // 快排时间复杂度o(n*logn)
-var sortColors = function(nums) {
-    if(nums.length <= 1) {
-        return nums
-    }
-    let left = []
-    let right = []
-    let mid = nums.splice(Math.floor(nums.length / 2), 1)[0]
-    console.log('mid', mid)
-    for(var i=0; i<nums.length; i++) {
-        if(mid > nums[i]) {
-            left.push(nums[i])
-        } else {
-            right.push(nums[i])
-        }
-    }
-    console.log(left, right)
-    return [...sortColors(left), mid, ...sortColors(right)]
-};
+// var sortColors = function(nums) {
+//     if(nums.length <= 1) {
+//         return nums
+//     }
+//     let left = []
+//     let right = []
+//     let mid = nums.splice(Math.floor(nums.length / 2), 1)[0]
+//     console.log('mid', mid)
+//     for(var i=0; i<nums.length; i++) {
+//         if(mid > nums[i]) {
+//             left.push(nums[i])
+//         } else {
+//             right.push(nums[i])
+//         }
+//     }
+//     console.log(left, right)
+//     return [...sortColors(left), mid, ...sortColors(right)]
+// };
 
-const res = sortColors(test)
-console.log('res', res)
+// const res = sortColors(test)
+// console.log('res', res)
 
 // let promise = new Promise(function(resolve, reject) {
 // 	console.log('Promise')
@@ -344,5 +344,79 @@ console.log('res', res)
 // })
 
 // 插入排序
+// 手写一个call
+// Function.prototype.apply2 = function(...arr) {
+//     let context = this
+//     console.log('arr', arr)
+//     let [ target, args ] = arr
+//     target.fn = context
+//     if(Array.isArray(arr)) {
+//         target.fn(...args)
+//     }
+//     delete target.fn
+// }
+
+// let target = {
+//     a: 1
+// }
+// let st = {
+//     a: 2,
+//     test: function(t, k) {
+//         console.log('this', this.a, t, k)
+//     }
+// }
+
+// st.test.apply2(target, [7, 3])
+
+//手写一个bind
+// Function.prototype.bind2 = function(...arr) {
+//     let context = this
+//     let [target, args] = arr
+//     return function () {
+//         return context.apply(target, args)
+//     }
+// }
+
+// let target = {
+//     a: 1
+// }
+// let st = {
+//     a: 2,
+//     test: function(t, k) {
+//         console.log('this', this.a, t, k)
+//     }
+// }
+
+// st.test.bind2(target, )
+
+
+// function Parent() {
+// 	this.name = 'kevin'
+// }
+
+// Parent.prototype.sayName = function() {
+// 	console.log('kk', this.name)
+// }
+
+// function Child() {
+
+// }
+
+// Child.prototype = new Parent()
+// Child.prototype.constructor = Child
+
+// let n = new Child
+// n.sayName()
+
+function Parent () {
+    console.log('this', this)
+    this.names = ['kevin', 'daisy'];
+}
+
+function Child () {
+    Parent.call(this);
+}
+
+var child1 = new Child();
 
 
