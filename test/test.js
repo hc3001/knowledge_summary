@@ -408,15 +408,229 @@
 // let n = new Child
 // n.sayName()
 
-function Parent () {
-    console.log('this', this)
-    this.names = ['kevin', 'daisy'];
+// function Parent () {
+//     console.log('this', this)
+//     this.names = ['kevin', 'daisy'];
+// }
+
+// function Child () {
+//     Parent.call(this);
+// }
+
+// var child1 = new Child();
+
+// 广度优先遍历
+// var tree = {
+//     value: 'a',
+//     children: [
+//         {
+//             value: 'b',
+//             children: [
+//                 {
+//                     value: 'd',
+//                     children: []
+//                 },
+//                 {
+//                     value: 'e',
+//                     children: []
+//                 }
+//             ]
+//         },
+//         {
+//             value: 'c',
+//             children: [
+//                 {
+//                     value: 'f',
+//                     children: []
+//                 },
+//                 {
+//                     value: 'g',
+//                     children: []
+//                 }
+//             ]
+//         }
+//     ]
+// }
+
+// const  bfs = function(tree) {
+//     let stack = [tree] 
+//     while(stack.length) {
+//         let p = stack.shift()
+//         console.log(p.value)
+//         let chidren = p.children
+//         stack.push(...chidren)
+//     }
+// }
+
+// console.log('bfs', bfs(tree))
+
+//先序遍历
+// const bt = {
+//     val: 1,
+//     left: {
+//         val: 2,
+//         left: {
+//             val: 4,
+//             left: {
+//                 val: 8,
+//                 left: null,
+//                 right: null,
+//             },
+//             right: {
+//                 val: 9,
+//                 left: null,
+//                 right: null,
+//             },
+//         },
+//         right: {
+//             val: 5,
+//             left: null,
+//             right: null,
+//         }
+//     },
+//     right: {
+//         val: 3,
+//         left: {
+//             val: 6,
+//             left: null,
+//             right: null,
+//         },
+//         right: {
+//             val: 7,
+//             left: null,
+//             right: null,
+//         }
+//     }
+// }
+
+// var preOrder = function(tree) {
+//     if(!tree) return 
+//     console.log(tree.val)
+//     preOrder(tree.left)
+//     preOrder(tree.right)
+// }
+
+// preOrder(bt)
+
+// const bts = {
+//     val: 1,
+//     left: {
+//         val: 2,
+//         left: {
+//             val: 4,
+//             left: {
+//                 val: 8,
+//                 left: null,
+//                 right: null,
+//             },
+//             right: {
+//                 val: 9,
+//                 left: null,
+//                 right: null,
+//             },
+//         },
+//         right: {
+//             val: 5,
+//             left: null,
+//             right: null,
+//         }
+//     },
+//     right: {
+//         val: 3,
+//         left: {
+//             val: 6,
+//             left: null,
+//             right: null,
+//         },
+//         right: {
+//             val: 7,
+//             left: null,
+//             right: null,
+//         }
+//     }
+// }
+
+// var preOrder2 = function(tree) {
+//     const line = [tree]
+//     while(line.length) {
+//         let p = line.pop()
+//         console.log(p.val)
+//         if(p.right) line.push(p.right)
+//         if(p.left) line.push(p.left)
+//     }
+// }
+
+// preOrder2(bts)
+
+// 实现一个new（返回一个{}， 对象的__proto__ 指向构造函数的prototype, 执行构造函数）
+
+// function Test(name) {
+//     this.color = ['red', 'green']
+//     this.name = name
+// }
+
+// function newReplace() {
+//     const obj = Object.create(null)
+//     const Constructor = Array.prototype.shift.call(arguments)
+//     console.log(Constructor, arguments);
+//     Constructor.call(obj, ...arguments)
+//     obj.__proto__ = Constructor.prototype
+//     return obj
+// }
+
+// console.log('tt', newReplace(Test, 'hc'))
+
+const bts = {
+    val: 1,
+    left: {
+        val: 2,
+        left: {
+            val: 4,
+            left: {
+                val: 8,
+                left: null,
+                right: null,
+            },
+            right: {
+                val: 9,
+                left: null,
+                right: null,
+            },
+        },
+        right: {
+            val: 5,
+            left: null,
+            right: null,
+        }
+    },
+    right: {
+        val: 3,
+        left: {
+            val: 6,
+            left: null,
+            right: null,
+        },
+        right: {
+            val: 7,
+            left: null,
+            right: null,
+        }
+    }
 }
 
-function Child () {
-    Parent.call(this);
+//中序遍历
+function centerOrder(tree) {
+    let t = []
+    let p = tree
+    while(p || t.length) {
+        while(p) {
+            t.push(p)
+            p = p.left
+        }
+        let l = t.pop()
+        console.log('l', l.val)
+        p = l.right
+    }
 }
 
-var child1 = new Child();
-
-
+centerOrder(bts)
