@@ -57,7 +57,6 @@ function maxLenString(s) {
     while(i < s.length) {
         let item = s[i]
         let index = win.indexOf(item)
-        console.log('item', item, index)
         if(!(index === -1)) {
             win.splice(0, index + 1)
         }
