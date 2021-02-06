@@ -634,3 +634,15 @@ function centerOrder(tree) {
 }
 
 centerOrder(bts)
+
+// tree shaking 只能用import， 原理为: 检测一个模块的导入和导出，如果导出多于导入，就去除多余的部分。import 为静态导入，不需要执行完全部模块，所以能实现tree-shaking。
+
+// development  
+    //sourceMap 代码全面
+    // 代码不需要压缩
+    // webpack-dev-server
+// production
+    //sourceMap 简洁
+    // 代码需要压缩
+
+// code splitting 代码拆分，方便浏览器缓存，提升加载速度。
