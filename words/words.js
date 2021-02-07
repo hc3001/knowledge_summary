@@ -11,3 +11,5 @@ intercept
 valid
 previous
 intersection
+avatar
+Specify 

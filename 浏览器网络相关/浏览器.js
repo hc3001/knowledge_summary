@@ -192,3 +192,4 @@
     // storage 字符串，本地缓存，储存空间大，不会与服务端进行数据传输。
 
 // https SSL/TLS 加密
+// https://www.jianshu.com/p/ee3559af04be
