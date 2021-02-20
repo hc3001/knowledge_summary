@@ -188,8 +188,15 @@
 // 20、session 与 cookie 的区别
     // session/cookie 都是用来跟踪用户状态的会话方式。
     // session 储存在服务端，大小没有限制，可以保存多个对象
-    // cookie 保存再客户端只能是字符串，大小有限制4k，一般用于保存sessionId
+    // cookie 保存再客户端只能是字符串，大小有限制4k，一般用 于保存sessionId
     // storage 字符串，本地缓存，储存空间大，不会与服务端进行数据传输。
 
-// https SSL/TLS 加密
+// 21、https SSL/TLS 加密
 // https://www.jianshu.com/p/ee3559af04be
+// htpps 加密传输原理
+    // 客户端获取公钥（publickey），就是获取证书
+    // 客户端校验公钥（操作系统维护一个证书列表）
+    // 客户端生成临时公钥key，并用publickey加密key，服务端收到并解密获取key
+    // 服务端用key加密内容（对称加密）
+    // 客户端使用key解密内容
+    // 在后续的传输过程中始终使用key进行加密解密
