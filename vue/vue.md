@@ -95,9 +95,7 @@ keep-alive
 销毁过程
 父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed
 
-#### 17、理解Vue和React区别
-
-#### 18、vue2 与 vue3的区别
+#### 17、vue2 与 vue3的区别
 
 
 
