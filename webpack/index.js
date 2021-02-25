@@ -32,6 +32,41 @@
 
 // 12、webpack-dev-server 用于开发环境，做的事情：监听文件改变，启动浏览器，打包的dist目录放入内存中。
 
-// 13、Tree Shaking 只支持import 方式引入，去除无用的代码
+// 13、Tree Shaking 
+    //只支持import 方式引入，去除无用的代码
+    //原理为: 检测一个模块的导入和导出，如果导出多于导入，就去除多余的部分。import 为静态导入，不需要执行完全部模块，所以能实现tree-shaking。
+
+// 14、development 与 production 模式区别
+// development  
+    //sourceMap 代码全面
+    // 代码不需要压缩
+    // webpack-dev-server
+// production
+    //sourceMap 简洁
+    // 代码需要压缩
+
+// 15、code splitting 代码拆分，方便浏览器缓存，提升加载速度。
+    // splitChunksPlug 插件能够实现同步和异步代码拆分，并且对大小等进行设置拆分
+
+// 16、lazy loading 懒加载，异步加载(import() 试验语法)
+
+// 17、加快页面加载速度，思路：①、代码拆分，减少js大小 ②、写法上采用异步模块加载。 ③、利用preloading， prefetching 优化加载
+
+// 18、webpack 打包性能提升
+    // node 与 npm版本更新
+    // loader 排除node_modules
+    // plugin 尽可能精简并确保可靠
+    // 优化node_module 打包过程，缓存重复的node_module中的插件
+    // 多进程打包
+    // 合理使用sourceMap
+
+// 19、编写一个loader： 实际loader是一个函数模块，参数为source，返回对source的处理。
+
+// 20、 编写一个plugin: 
+    // plugin实际是一个类，里面有个apply方法，参数compiler 为配置所有内容。
+    // 我们可以在compiler某个时刻的钩子函数里面做相应的工作，比如生成文件的时候，额外生成一个说明文件。
+
+// 21、webpack 基本原理
+
 
 //webpack 怎么打包成多个文件。 fineName: '[name].js'  chunkFilename: '[name].js'
