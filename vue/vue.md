@@ -97,7 +97,17 @@ keep-alive
 
 #### 17、vue2 与 vue3的区别
 
+#### 18、Vue 性能优化
 
+事件代理
+keep-alive
+拆分组件
+key 保证唯一性
+路由懒加载、异步组件
+防抖节流
+Vue 加载性能优化
+第三方模块按需导入（ babel-plugin-component ）
+图片懒加载
 
 
 

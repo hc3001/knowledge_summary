@@ -80,7 +80,7 @@ pub.notify()
 // 4、垃圾回收机制（标记清除 与 引用计数）重点：垃圾回收器会按照固定的时间间隔周期性的执行回收操作
 // http://obkoro1.com/web_accumulate/accumulate/tool/js%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6.html#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9A
 // 引用计数：垃圾回收器跟踪每个值被引用的次数，如果一个值引用的次数为0，就可以释放
-// 标记清除：1、垃圾回收器会在运行的时候会给存储在内存中的所有变量都加上标记 2、从根部出发将能触及到的当前对象的标记清除。3、那些还存在标记的变量被视为准备删除的变量。4、垃圾收集器会执行最后一步内存清除的工作
+// 标记清除：1、垃圾回收器会在运行的时候会给存储在内存中的值都加上标记 2、从根部出发将能触及到的当前对象的标记清除。3、那些还存在标记的变量被视为准备删除的变量。4、垃圾收集器会执行最后一步内存清除的工作
 
 // 5、什么是内存泄漏？ 
 // 无用的内存还在占用，得不到释放和归还。 场景1、 意外的全局变量 2、遗忘的定时器 3、被遗忘的事件监听器  4、被遗忘的闭包 5、脱离 DOM 的引用
@@ -131,7 +131,7 @@ checkscope();
 		// ②、执行函数，修改 AO（活动对象） 的属性值
 	// 4、当函数执行完毕的时候，就会将函数的执行上下文从栈中弹出
 
-// 8、函数的重载：函数名相同，函数的参数不同(包括参数个数和参数类型)，根据参数的不同去执行不同的操作， JS中没有函数重载。
+// 8、函数的重载：函数名相同，函数的参数不同(包括参数个数和参数类型)，根据参数的不同去执行不同的操作，JS中没有函数重载。
 // https://juejin.cn/post/6844903933480009741
 // 模拟函数重载
 
@@ -206,3 +206,27 @@ function Test(name) {
 }
 
 obsj(Test, 'hc')
+
+// 15、模拟call 操作
+
+Function.prototype.call1 = function() {
+	console.log('thiss', this, arguments)
+	let context = this
+	let obj = arguments[0]
+	var args = [...arguments].slice(1)
+	obj.context = context
+	let result = obj.context()
+	delete obj.context(args)
+	return result
+}
+
+let test1 = {
+	name: 'hc'
+}
+let test2 = {
+	sayName() {
+		console.log(this.name)
+	}
+}
+
+test2.sayName.call1(test1)
