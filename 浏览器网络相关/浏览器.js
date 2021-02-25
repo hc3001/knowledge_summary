@@ -54,7 +54,7 @@
 
 
 //5、content-type/Accept，Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型，比如：Content-Type：text/html html、text/plain 纯文本;
-//常见content-type
+//常见post content-type
 //application/x-www-form-urlencoded 原始表单提交，请求参数用key1=val1&key2=val2的方式进行组织，并放到请求实体里面，不支持文件，一般用于表单的提交。
 //multipart/form-data  post数据请求方式，一般需要上传文件的表单则用该类型。
 //application/json  JSON 是一种轻量级的数据格式，以“键-值”对的方式组织的数据，可以提交复杂数据，axios 默认就是application/json
@@ -73,10 +73,10 @@
 // 什么是csrf， csrf即跨站伪造请求
 // csrf 典型攻击流程，1、登录a.com,并保留了cookie 凭证 2、诱导受害者访问b.com 3、b.com 发送请求到a.com，浏览器默认带上cookie 4、a.com服务端误认为是a.com 发送的请求，并执行。 5、攻击完成
 // csrf 分类，get 类型的csrf， post 类型的csrf，链接类型的csrf
-// 防护策略 1、阻止不明外域的访问（同源检测，Samesite Cookie） 2、csrf token 验证
+// 防护策略 1、阻止不明外域的访问（同源检测origin/referer，Samesite Cookie） 2、csrf token 验证
 
 //7、defer、 async、 preload、 prefetch 的区别是什么？
-//defer 立即下载，同时页面解析，页面解析后延迟执行。(defer 特性仅适用于外部脚本)
+//defer 立即下载，同时页面解析，页面解析后延迟执行。
 //async 立即下载，同时页面解析，下载完后停止页面解析，立即执行脚本，所以不保证顺序执行。
 //defer、async 只能直接加在script上，preload、 prefetch用link rel中可以加载任何资源。
 //preload 立即下载，同时页面解析，需要用到下载的脚本时执行。如果没有下载完，等待下载。
@@ -124,6 +124,12 @@
 //回流改变主体，重绘改变外观
 
 //14、http报文结构？
+// 请求行、请求头、主体部分
+// 请求头部分：
+    //通用部分：Date、connection 
+    //缓存部分： cache-control、 If-Modified-Since、 If-None-Match
+    //Accept: Accept-language Accept-charset
+    //contetn-type、Host
 //https://www.cnblogs.com/unclekeith/p/8242012.html
 //https://www.jianshu.com/p/a2c4ede32d11
 //https://www.cnblogs.com/unclekeith/p/8242012.html
@@ -134,7 +140,7 @@
 //cookie 就是一小段文本信息（key-value格式），用来记录用户状态。
 //cookie 机制
 //浏览器第一次请求 》》》》 服务端设置头部set-cookie 》》》》第二次请求带上上次的cookie 》》》》 服务端根据cookie返回相对应的资源
-//cookie 四个属性（name=value， Expires， domain， path，sameSite、httpOnly）
+//cookie 四个属性（name=value， Expires， domain， path，sameSite，httpOnly）
 //expires cookie的有效时间，单位为秒，设置为0立即清除，设置为负数为临时cookie，设置为正为多少秒个失效。
 //修改删除cookie，document.cookie 直接设置， 可用写一个方法来读取cookie
 //cookie风险，存在csrf 跨站伪造请求风险，一般用token来识别身份。
@@ -151,7 +157,7 @@
 // https://www.cnblogs.com/cxuanBlog/p/12735623.html
 // https://segmentfault.com/a/1190000022625538
 
-//17、 什么是 RESTful  Restful 就是一种rest风格的api，基本设计原则1、资源  2、统一接口 3、URL 4、无状态
+//17、 什么是 RESTful  Restful 就是一种rest风格的api，基本设计原则1、url对应资源  2、统一接口 3、http动词进行操作资源 4、无状态
 // https://www.jianshu.com/p/7f8810c28ab6
 
 
@@ -180,7 +186,7 @@
     // 剔除无用代码（JS Tree Shaking）
 
 // 19、get 与 post的区别
-  // get 方法一般用于请求 post 一般用表单提交
+  // get 方法一般用于请求数据 post 一般用表单提交
   // get 参数拼接在URL后面， post 放在body上
   // get 请求的 URL 有长度限制，而 post 请求会把参数和值放在消息体中，对数据长度没有要求
   // get 请求会被浏览器主动 cache，而 post 不会，除非手动设置  
@@ -188,8 +194,15 @@
 // 20、session 与 cookie 的区别
     // session/cookie 都是用来跟踪用户状态的会话方式。
     // session 储存在服务端，大小没有限制，可以保存多个对象
-    // cookie 保存再客户端只能是字符串，大小有限制4k，一般用于保存sessionId
+    // cookie 保存在客户端只能是字符串，大小有限制4k，一般用于保存sessionId
     // storage 字符串，本地缓存，储存空间大，不会与服务端进行数据传输。
 
-// https SSL/TLS 加密
+// 21、https SSL/TLS 加密
 // https://www.jianshu.com/p/ee3559af04be
+// htpps 加密传输原理
+    // 客户端获取公钥（publickey），就是获取证书
+    // 客户端校验公钥（操作系统维护一个证书列表）
+    // 客户端生成临时公钥key，并用publickey加密key，服务端收到并解密获取key
+    // 服务端用key加密内容（对称加密）
+    // 客户端使用key解密内容
+    // 在后续的传输过程中始终使用key进行加密解密
