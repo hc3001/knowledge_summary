@@ -96,6 +96,18 @@ var result = string.replace(regex, function() {
 });
 console.log(result); 
 
+// 5、数组降维
+let array = [1, [2], [3]]
+function flatMap(arr) {
+	while(arr.some(item=> Array.isArray(item))) {
+		arr = [].concat(...arr)
+	}
+	return arr
+}
+
+let res = flatMap(array)
+console.log(res)
+
 
 
 

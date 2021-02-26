@@ -12,6 +12,11 @@
 // 箭头函数: 箭头函数会捕获其所在上下文的this值, 作为自己的this值
 // 			不可以使用arguments对象，该对象在函数体内不存在
 
+// 闭包以及作用
+	//能够读取其他函数内部变量的函数。
+	//可以读取函数内部的变量
+	//隐藏变量，避免全局污染
+
 //三、 http 发送请求代码
 // 1、创建AJAX 对象
 var ajax = new XMLHttpRequest()
@@ -191,6 +196,22 @@ function createObj(o) {
     return new F();
 }
 
+// 寄生组合式继承
+function Parent(name) {
+	this.color = ['red', 'green', 'black']
+	this.name = name
+}
+parent.prototype.sayName = function() {
+	console.log(this.name)
+}
+
+function Child(age) {
+	Parent.call(this)
+	this.age = age
+}
+function F() {}
+F.prototype = parent.prototype
+Child.prototype = new F()
 
 // 14、模拟new操作
 function obsj() {
@@ -210,7 +231,6 @@ obsj(Test, 'hc')
 // 15、模拟call 操作
 
 Function.prototype.call1 = function() {
-	console.log('thiss', this, arguments)
 	let context = this
 	let obj = arguments[0]
 	var args = [...arguments].slice(1)
@@ -230,3 +250,25 @@ let test2 = {
 }
 
 test2.sayName.call1(test1)
+
+// 16、模拟Object.create() 函数实现
+
+function createObj(o) {
+	function F() {}
+	F.prototype = o
+	return new F()
+}
+
+// 17、实现instanceof
+	function instanceof1(ins, cons) {
+		let p = [].__proto__
+		while(p) {
+			if(p == cons) {
+				return true
+			}
+			p = p.__proto__
+		}
+		return false
+	}
+
+	instanceof1([], Array)

@@ -580,60 +580,60 @@
 
 // console.log('tt', newReplace(Test, 'hc'))
 
-const bts = {
-    val: 1,
-    left: {
-        val: 2,
-        left: {
-            val: 4,
-            left: {
-                val: 8,
-                left: null,
-                right: null,
-            },
-            right: {
-                val: 9,
-                left: null,
-                right: null,
-            },
-        },
-        right: {
-            val: 5,
-            left: null,
-            right: null,
-        }
-    },
-    right: {
-        val: 3,
-        left: {
-            val: 6,
-            left: null,
-            right: null,
-        },
-        right: {
-            val: 7,
-            left: null,
-            right: null,
-        }
-    }
-}
+// const bts = {
+//     val: 1,
+//     left: {
+//         val: 2,
+//         left: {
+//             val: 4,
+//             left: {
+//                 val: 8,
+//                 left: null,
+//                 right: null,
+//             },
+//             right: {
+//                 val: 9,
+//                 left: null,
+//                 right: null,
+//             },
+//         },
+//         right: {
+//             val: 5,
+//             left: null,
+//             right: null,
+//         }
+//     },
+//     right: {
+//         val: 3,
+//         left: {
+//             val: 6,
+//             left: null,
+//             right: null,
+//         },
+//         right: {
+//             val: 7,
+//             left: null,
+//             right: null,
+//         }
+//     }
+// }
 
-//中序遍历
-function centerOrder(tree) {
-    let t = []
-    let p = tree
-    while(p || t.length) {
-        while(p) {
-            t.push(p)
-            p = p.left
-        }
-        let l = t.pop()
-        console.log('l', l.val)
-        p = l.right
-    }
-}
+// //中序遍历
+// function centerOrder(tree) {
+//     let t = []
+//     let p = tree
+//     while(p || t.length) {
+//         while(p) {
+//             t.push(p)
+//             p = p.left
+//         }
+//         let l = t.pop()
+//         console.log('l', l.val)
+//         p = l.right
+//     }
+// }
 
-centerOrder(bts)
+// centerOrder(bts)
 
 // tree shaking 只能用import， 原理为: 检测一个模块的导入和导出，如果导出多于导入，就去除多余的部分。import 为静态导入，不需要执行完全部模块，所以能实现tree-shaking。
 
@@ -646,3 +646,28 @@ centerOrder(bts)
     // 代码需要压缩
 
 // code splitting 代码拆分，方便浏览器缓存，提升加载速度。
+
+
+// let array = [1, [2], [3]]
+// function flatMap(arr) {
+// 	while(arr.some(item=> Array.isArray(item))) {
+// 		arr = [].concat(...arr)
+// 	}
+// 	return arr
+// }
+
+// let res = flatMap(array)
+// console.log(res)
+
+function instanceof1(ins, cons) {
+    let p = [].__proto__
+    while(p) {
+        if(p == cons.prototype) {
+            return true
+        }
+        p = p.__proto__
+    }
+    return false
+}
+
+console.log(instanceof1([], Array))

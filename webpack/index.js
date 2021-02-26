@@ -65,9 +65,34 @@
 // 20、 编写一个plugin: 
     // plugin实际是一个类，里面有个apply方法，参数compiler 为配置所有内容。
     // 我们可以在compiler某个时刻的钩子函数里面做相应的工作，比如生成文件的时候，额外生成一个说明文件。
+    class CopyrighWebpackPlugin {
+        constructor(options) {
+            console.log('插件test')
+        }
+        // compiler 配置所有内容，打包内容
+        apply(compiler) {
+            compiler.hooks.emit.tapAsync('CopyrighWebpackPlugin', (compilation, cb) => {
+                compilation.assets['copyright.txt'] = {
+                    source: function() {
+                        return 'copyright by dell lee'
+                    },
+                    size: function() {
+                        return 21
+                    }
+                }
+                cb()
+            })
+        }
+    }
+    
 
 // 21、webpack 基本原理
     //先逐级递归识别依赖，构建依赖图谱
     //将代码转化成AST抽象语法树
     //在AST阶段中去处理代码
     //把AST抽象语法树变成浏览器可以识别的代码， 然后输出
+
+// 22、将JS转义为低版本（babel-loader）
+
+// 23、webpack 用什么插件压缩css
+    //mini-css-extract-plugin
