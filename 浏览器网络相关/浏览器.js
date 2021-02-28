@@ -141,7 +141,7 @@
 //cookie 机制
 //浏览器第一次请求 》》》》 服务端设置头部set-cookie 》》》》第二次请求带上上次的cookie 》》》》 服务端根据cookie返回相对应的资源
 //cookie 四个属性（name=value， Expires， domain， path，sameSite，httpOnly）
-//expires cookie的有效时间，单位为秒，设置为0立即清除，设置为负数为临时cookie，设置为正为多少秒个失效。
+//expires(默认-1) cookie的有效时间，单位为秒，设置为0立即清除，设置为负数为临时cookie，设置为正为多少秒个失效。
 //修改删除cookie，document.cookie 直接设置， 可用写一个方法来读取cookie
 //cookie风险，存在csrf 跨站伪造请求风险，一般用token来识别身份。
 
@@ -206,3 +206,11 @@
     // 服务端用key加密内容（对称加密）
     // 客户端使用key解密内容
     // 在后续的传输过程中始终使用key进行加密解密
+
+// http1.0 http1.1 http2.0
+    //1.1 长连接，新增connection字段，keep-alive表示一直保持tcp连接
+    //1.1 客户端cookie、安全机制，引入了缓存last-modify etag cache-control
+    //1.1 同一个TCP连接里面，客户端可以同时发送多个请求，响应有顺序响应。
+    //2.0 服务端推送
+    //2.0 头部压缩
+    //2.0 多路复用： 在共享TCP链接的基础上同时发送请求和响应

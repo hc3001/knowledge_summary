@@ -659,15 +659,51 @@
 // let res = flatMap(array)
 // console.log(res)
 
-function instanceof1(ins, cons) {
-    let p = [].__proto__
-    while(p) {
-        if(p == cons.prototype) {
-            return true
+// function instanceof1(ins, cons) {
+//     let p = [].__proto__
+//     while(p) {
+//         if(p == cons.prototype) {
+//             return true
+//         }
+//         p = p.__proto__
+//     }
+//     return false
+// }
+
+// console.log(instanceof1([], Array))
+
+// function test() {
+//     const a = [...arguments]
+//     console.log(a, arguments)
+// }
+
+// test(1)
+
+// let arr = []
+// arr[0] = 0
+// arr[1] = 1
+// arr[2] = 2
+// arr[5] = 5
+// console.log(arr, arr.length)
+
+function curry(fn, agus) {
+    let length = fn.length
+    var agus = agus || [] //数组储存变量
+    return function() {
+        let content = this
+        let fnAgus = [...arguments]
+        agus.push(...fnAgus)
+        if(agus.length < length) {
+            return curry(fn, agus)
+        } else {
+            return fn.call(content, ...agus)
         }
-        p = p.__proto__
     }
-    return false
 }
 
-console.log(instanceof1([], Array))
+//使用
+let fn = curry((a, b, c) => {
+    return a + b + c
+})
+let result = fn(1)(2)(3)
+console.log('kkk', result)

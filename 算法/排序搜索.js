@@ -1,4 +1,4 @@
-// //一、排序，冒泡排序
+// //一、排序，冒泡排序 O(n²)
 // let arr = [5, 8, 3, 2, 1, 10]
 // let zSuffer = function(arr) {
 //     for (let i = 0; i < arr.length - 1; i++) {
@@ -31,7 +31,7 @@
 // suffer(arr)
 // console.log(arr)
 
-// //二、插入排序
+// //二、插入排序 O(n²)
 // let arr = [8, 3, 1, 4, 5, 10]
 
 // let insertSort = function(arr) {
@@ -49,7 +49,7 @@
 // insertSort(arr)
 // console.log(arr)
 
-// // 三、选择排序
+// // 三、选择排序 O(n²)
 // let arr = [8, 3, 1, 4, 5, 2]
 
 // let selectSort = function(arr) {
@@ -69,7 +69,7 @@
 // selectSort(arr)
 // console.log(arr)
 
-// //三、快速排序
+// //三、快速排序 O(nlogn)
 // let arr = [5, 8, 3, 2, 1, 10]
 
 // let quickSort = function(arr) {
@@ -98,7 +98,7 @@
 // let newArr = quickSort(arr)
 // console.log(newArr)
 
-//四、归并排序
+//四、归并排序 O(nlogn)
 Array.prototype.mergeSort = function() {
 	const rec = (arr) => {
 		if (arr.length === 1) {

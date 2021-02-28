@@ -16,5 +16,6 @@
     //原因：transform创建了一个新的堆叠上下文（类似z轴），其子元素都会受其堆叠上下文影响。
 // dpr 概念以及应用 https://trekerz.github.io/2017/12/03/dpr-devicePixelRatio-%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%BA%94%E7%94%A8/
 // css px小数问题， https://segmentfault.com/q/1010000003053873
-// getBoundingClientRect 
+// getBoundingClientRect 方法
+// BFC
     

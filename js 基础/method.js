@@ -108,6 +108,35 @@ function flatMap(arr) {
 let res = flatMap(array)
 console.log(res)
 
+// 6、节流（一秒内只触发一次函数）
+let fotto = function(fun, limit) {
+	let t = 0
+	return function() {
+        let context = this
+        if(Date.now() - t >= limit) {
+            t = Date.now()
+            fun.call(contenxt, arguments)
+        }
+    }
+}
+
+// 7、防抖（间隔100毫秒内触发，从不触发）
+let jsl = function(fun, limit) {
+    let t = null
+    return function() {
+        const context = this
+        clearTimeout(t)
+        t = setTimeou(()=> {
+            fun.call(context, arguments)
+        }, limit)
+    }
+}
+
+
+// 8、slice()、 substring()区别
+	//参数为正数的时候，没有区别
+	// 参数为负数时，substring(-2) 把所有负数置0
+	// slice(-2) 表示-2 到 0截取。
 
 
 

@@ -271,4 +271,72 @@ function createObj(o) {
 		return false
 	}
 
-	instanceof1([], Array)
+instanceof1([], Array)
+
+// 18、防抖（在事件被触发n秒后再执行，如果在这n秒内又被触发，则重新计时。主要用来限制频率）
+    // 搜索框搜索输入。只需用户最后一次输入完，再发送请求
+    // 窗口大小Resize。只需窗口调整完成后，计算窗口大小。防止重复渲染。
+function debounce(fn, wait) {
+    let t = null
+    return function() {
+        const content = this
+        const agus = arguments
+        clearTimeout(t)
+        t = setTimeout(()=> {
+            fn.call(content, agus)
+        }, wait)
+    }
+}
+
+// 19、节流（在规定时间内连续执行只执行一次（可能第一次），本质上是降低频率）
+    // 滚动加载发送ajax
+    // 时间撮(第一次执行)
+    function fdou(fn, wait) {
+        let t = 0
+        return function() {
+            const content = this
+            if(Date.now() - t > wait) {
+                fn.call(content, [...arguments])
+                t = Date.now()
+            }
+        }
+    }
+    // 定时器（wait 后执行）
+    function dsdou(fn, wait) {
+        let time = null
+        return function() {
+            let content = this
+            if(!time) {
+                time = setTimeout(()=> {
+                    fn.call(content, [...arguments])
+                    time = null
+                }, wait)
+            }
+        }
+    }
+
+// 20、柯里化的实现
+    // 实现fn(1)(2)(3) 返回6
+    function curry(fn, agus) {
+        let length = fn.length
+        let agus = agus || [] //数组储存变量
+        return function() {
+            let content = this
+            let fnAgus = [...arguments]
+            agus.push(...fnAgus)
+            if(agus.length < length) {
+                curry(fn, agus)
+            } else {
+                return fn.call(content, [...agus])
+            }
+        }
+    }
+
+    //使用
+    let fn = curry((a, b, c)=> {
+        return a + b + c
+    })
+    let result = fn(1)(2)(3)
+
+// websocket
+    

@@ -22,3 +22,5 @@
 // 11、Git 应用储存 git stash apply stash@{0}
 
 // 12、Git 打标签，默认打在最新提交上  git tag v1.0
+
+// 13、Git 查看远程地址 git remote -v
