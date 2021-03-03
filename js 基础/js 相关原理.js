@@ -338,5 +338,31 @@ function debounce(fn, wait) {
     })
     let result = fn(1)(2)(3)
 
-// websocket
-    
+// 21、 generator 实现 async
+function* testG() {
+	// await被编译成了yield
+	const data = yield getData()
+	console.log('data: ', data);
+	const data2 = yield getData()
+	console.log('data2: ', data2);
+	return data + '123'
+  }
+
+function generatorTest(gen) {
+	return function() {
+		let rs = gen.call(this, ...arguments)
+		return new Promise((resolve, reject) => {
+			function test(next, argu) {
+				
+			}
+			test('next')
+		})
+	}
+}
+  
+  // 调用方法
+let rgen = generatorTest(testG)
+rgen.then(result => {
+	console.log(result)
+})
+
