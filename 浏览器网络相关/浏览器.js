@@ -124,7 +124,7 @@
 //回流改变主体，重绘改变外观
 
 //14、http报文结构？
-// 请求行、请求头、主体部分
+// 首行、请求头、主体部分
 // 请求头部分：
     //通用部分：Date、connection 
     //缓存部分： cache-control、 If-Modified-Since、 If-None-Match
