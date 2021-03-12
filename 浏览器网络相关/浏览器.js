@@ -207,10 +207,12 @@
     // 客户端使用key解密内容
     // 在后续的传输过程中始终使用key进行加密解密
 
-// http1.0 http1.1 http2.0
+// 22、http1.0 http1.1 http2.0
     //1.1 长连接，新增connection字段，keep-alive表示一直保持tcp连接
     //1.1 客户端cookie、安全机制，引入了缓存last-modify etag cache-control
     //1.1 同一个TCP连接里面，客户端可以同时发送多个请求，响应有顺序响应。
     //2.0 服务端推送
     //2.0 头部压缩
     //2.0 多路复用： 在共享TCP链接的基础上同时发送请求和响应
+
+ // 23、 CDN 缓存

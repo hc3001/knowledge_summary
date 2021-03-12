@@ -389,7 +389,6 @@
 
 // st.test.bind2(target, )
 
-
 // function Parent() {
 // 	this.name = 'kevin'
 // }
@@ -453,7 +452,7 @@
 // }
 
 // const  bfs = function(tree) {
-//     let stack = [tree] 
+//     let stack = [tree]
 //     while(stack.length) {
 //         let p = stack.shift()
 //         console.log(p.value)
@@ -504,7 +503,7 @@
 // }
 
 // var preOrder = function(tree) {
-//     if(!tree) return 
+//     if(!tree) return
 //     console.log(tree.val)
 //     preOrder(tree.left)
 //     preOrder(tree.right)
@@ -637,16 +636,15 @@
 
 // tree shaking 只能用import， 原理为: 检测一个模块的导入和导出，如果导出多于导入，就去除多余的部分。import 为静态导入，不需要执行完全部模块，所以能实现tree-shaking。
 
-// development  
-    //sourceMap 代码全面
-    // 代码不需要压缩
-    // webpack-dev-server
+// development
+//sourceMap 代码全面
+// 代码不需要压缩
+// webpack-dev-server
 // production
-    //sourceMap 简洁
-    // 代码需要压缩
+//sourceMap 简洁
+// 代码需要压缩
 
 // code splitting 代码拆分，方便浏览器缓存，提升加载速度。
-
 
 // let array = [1, [2], [3]]
 // function flatMap(arr) {
@@ -687,23 +685,23 @@
 // console.log(arr, arr.length)
 
 function curry(fn, agus) {
-    let length = fn.length
-    var agus = agus || [] //数组储存变量
-    return function() {
-        let content = this
-        let fnAgus = [...arguments]
-        agus.push(...fnAgus)
-        if(agus.length < length) {
-            return curry(fn, agus)
-        } else {
-            return fn.call(content, ...agus)
-        }
-    }
+	let length = fn.length
+	var agus = agus || [] //数组储存变量
+	return function () {
+		let content = this
+		let fnAgus = [...arguments]
+		agus.push(...fnAgus)
+		if (agus.length < length) {
+			return curry(fn, agus)
+		} else {
+			return fn.call(content, ...agus)
+		}
+	}
 }
 
 //使用
 let fn = curry((a, b, c) => {
-    return a + b + c
+	return a + b + c
 })
 let result = fn(1)(2)(3)
-console.log('kkk', result)
+console.log("kkk", result)
