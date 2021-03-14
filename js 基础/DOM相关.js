@@ -14,3 +14,6 @@
 //3、attribute和property的区别是什么
 
 //4、elements attributes是什么，有什么作用
+
+//5、二个不同的iframe 怎么通讯
+    // postMessage

@@ -13,3 +13,5 @@ previous
 intersection
 avatar
 Specify 
+discard
+directory
