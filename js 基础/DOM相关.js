@@ -12,3 +12,5 @@
 // }
 
 //3、attribute和property的区别是什么
+
+//4、elements attributes是什么，有什么作用
