@@ -36,3 +36,5 @@
     // 4、拉取远程仓库分支：git fetch --all
     // 5、检出远程分支到本地：git checkout -b develop origin/develop
     // 6、git add .   /   git commit -m 'test'   / git push origin
+
+// 17、 git reset --soft HEAD^
