@@ -15,3 +15,6 @@ avatar
 Specify 
 discard
 directory
+instance
+inspect
+Specify 
