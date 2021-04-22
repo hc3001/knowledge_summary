@@ -141,7 +141,7 @@
 //cookie 机制
 //浏览器第一次请求 》》》》 服务端设置头部set-cookie 》》》》第二次请求带上上次的cookie 》》》》 服务端根据cookie返回相对应的资源
 //cookie 四个属性（name=value， Expires， domain， path，sameSite，httpOnly）
-//expires(默认-1) cookie的有效时间，单位为秒，设置为0立即清除，设置为负数为临时cookie，设置为正为多少秒个失效。
+//expires(默认-1) cookie的有效时间，单位为秒，设置为0立即清除，设置为负数为临时cookie，设置为正为多少秒个失效。cookie不设置Expires属性的时候为会话级别，当关闭浏览器COOKIE消失
 //修改删除cookie，document.cookie 直接设置， 可用写一个方法来读取cookie
 //cookie风险，存在csrf 跨站伪造请求风险，一般用token来识别身份。
 
