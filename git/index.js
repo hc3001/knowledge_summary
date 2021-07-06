@@ -38,3 +38,14 @@
     // 6、git add .   /   git commit -m 'test'   / git push origin
 
 // 17、 git reset --soft HEAD^
+
+
+// 工作流
+
+// HEAD 意义
+
+// origin 意义
+
+// 合并评审
+
+// 限制push（保护分支）
